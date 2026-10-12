@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>How it works · ThreatReady</title>
+<meta name="description" content="A real attack, in ~30 minutes. The 4-step ThreatReady reasoning assessment flow — from role selection to transparent scoring."/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-48.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="legal.css">
+<style>
+.hiw-hero{padding:32px 0 22px;text-align:center}
+.hiw-hero .eyebrow{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;font-family:var(--mono)}
+.hiw-hero h1{font-size:clamp(1.5rem,2.8vw,2rem);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em;font-weight:800}
+.hiw-hero .grad{background:var(--grad-btn);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hiw-hero p{font-size:.95rem;color:var(--text-2);max-width:580px;margin:0 auto;line-height:1.55}
+.hiw-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0 36px}
+@media (max-width:760px){.hiw-grid{grid-template-columns:1fr}}
+.hiw-step{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 20px;position:relative;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.hiw-step:hover{transform:translateY(-2px);box-shadow:0 12px 32px -10px rgba(124,58,237,.18);border-color:var(--primary-light)}
+.hiw-step-n{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;background:var(--grad-btn);color:#fff;font-family:var(--mono);font-weight:700;font-size:.875rem;margin-bottom:12px;box-shadow:0 5px 14px -4px rgba(124,58,237,.4)}
+.hiw-step h3{font-size:1.0625rem;margin:0 0 6px;color:var(--text);font-weight:700}
+.hiw-step p{font-size:.9rem;color:var(--text-2);line-height:1.55;margin:0}
+.hiw-cta{text-align:center;padding:22px 22px;background:linear-gradient(135deg,rgba(124,58,237,.05),rgba(168,85,247,.06));border:1px solid var(--border-2);border-radius:14px;margin-bottom:32px}
+.hiw-cta h3{font-size:1.125rem;margin:0 0 8px;color:var(--text)}
+.hiw-cta p{font-size:.9375rem;color:var(--text-2);margin:0 0 18px;line-height:1.55}
+.hiw-cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hiw-cta-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:var(--r-full);font-weight:600;font-size:.9375rem;text-decoration:none;transition:all .15s ease}
+.hiw-cta-pri{background:var(--grad-btn);color:#fff;box-shadow:0 6px 16px -4px rgba(124,58,237,.4)}
+.hiw-cta-pri:hover{transform:translateY(-1px);box-shadow:0 10px 22px -4px rgba(124,58,237,.5);text-decoration:none;color:#fff}
+.hiw-cta-sec{background:var(--surface);color:var(--text-2);border:1px solid var(--border)}
+.hiw-cta-sec:hover{color:var(--accent);border-color:var(--primary-light);text-decoration:none}
+:root[data-theme="dark"] .hiw-cta{background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(168,85,247,.06));border-color:rgba(124,58,237,.18)}
+</style>
+<script>
+(function(){try{var s=localStorage.getItem('tr-theme')||localStorage.getItem('theme');var t=(s==='light'||s==='dark')?s:'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+</script>
+</head>
+<body>
+
+<nav class="lnav">
+<div class="lnav-c">
+<a href="index.html" class="logo">
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
+<span class="logo-t">ThreatReady</span>
+</a>
+<ul class="lnav-links" aria-label="Pages">
+<li><a href="index.html">Home</a></li>
+<li><a href="how-it-works.html">How it works</a></li>
+<li><a href="transparent-scoring.html">Scoring</a></li>
+<li><a href="rubric.html">Rubric</a></li>
+<li><a href="sample-report.html">Sample report</a></li>
+<li><a href="security.html">Security</a></li>
+</ul>
+<div class="lnav-r">
+<button class="theme-tog" id="themeTog" aria-label="Toggle dark mode" title="Toggle dark mode">
+<svg class="sun-i" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="moon-i" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<a href="index.html" class="back"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to home</span></a>
+</div>
+</div>
+</nav>
+
+<div class="lcontainer">
+
+<header class="hiw-hero">
+<span class="eyebrow">How it works</span>
+<h1>A real attack, in <span class="grad">~30 minutes</span></h1>
+<p>No multiple choice. No fluff. Four steps from role selection to a defensible, transparent score.</p>
+</header>
+
+<section class="hiw-grid" aria-label="Four-step assessment flow">
+
+<div class="hiw-step">
+<div class="hiw-step-n">01</div>
+<h3>Choose your role</h3>
+<p>Pick from 15 specialized cybersecurity tracks — from Cloud Security to Red Team to AI/LLM Security. Hiring managers can pick multiple tracks for the same candidate.</p>
+</div>
+
+<div class="hiw-step">
+<div class="hiw-step-n">02</div>
+<h3>Face a real architecture</h3>
+<p>A random cloud or enterprise architecture loads with an attack chain mapped to MITRE ATT&amp;CK. No two sessions are identical — every retake gets a different architecture from the pool.</p>
+</div>
+
+<div class="hiw-step">
+<div class="hiw-step-n">03</div>
+<h3>Answer 5 adaptive questions</h3>
+<p>Our AI generates follow-ups based on what you just said. Pre-prepared answers don't survive the second question. Neither does memorization or copy-paste — both are blocked at input.</p>
+</div>
+
+<div class="hiw-step">
+<div class="hiw-step-n">04</div>
+<h3>Get transparent scoring</h3>
+<p>Scores across five anchored dimensions, side-by-side with the model answer, qualitative band, percentile ranking, and a shareable badge. Every score is auditable down to the 3-pass evaluation trace.</p>
+</div>
+
+</section>
+
+<section class="hiw-cta">
+<h3>Ready to see what your reasoning looks like under pressure?</h3>
+<p>Try the live demo. No signup required. ~2 minutes to your first score.</p>
+<div class="hiw-cta-row">
+<a href="index.html#trydemo" class="hiw-cta-btn hiw-cta-pri">Try the demo <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="transparent-scoring.html" class="hiw-cta-btn hiw-cta-sec">See how scoring works</a>
+</div>
+</section>
+
+</div>
+
+<footer class="lft">
+<div class="lft-c">
+<a href="index.html" class="logo">
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
+<span class="logo-t">ThreatReady</span>
+</a>
+<ul class="lft-l">
+<li><a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a></li>
+<li><a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a></li>
+<li><a href="security.html" target="_blank" rel="noopener noreferrer">Security</a></li>
+<li><a href="rubric.html" target="_blank" rel="noopener noreferrer">Scoring Rubric</a></li>
+<li><a href="sample-report.html" target="_blank" rel="noopener noreferrer">Sample Report</a></li>
+<li><a href="dpa.html" target="_blank" rel="noopener noreferrer">DPA</a></li>
+</ul>
+</div>
+<div class="aprod"><span>A PRODUCT OF</span><a href="https://aerovanttech.com/" target="_blank" rel="noopener">AEROVANT TECHNOLOGIES<svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></div><div class="lft-bot">&copy; 2026 <a href="https://aerovanttech.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Aerovant Technologies Pvt. Ltd.</a> All rights reserved.</div>
+</footer>
+
+<script>
+(function(){var t=document.getElementById('themeTog');if(!t)return;t.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tr-theme',n);}catch(e){}});})();
+</script>
+
+<script src="back-to-top.js" defer></script>
+</body>
+</html>

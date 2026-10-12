@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Page not found · ThreatReady</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<script>
+/* GitHub Pages SPA fallback for the application under /app/.
+   Deep links such as /app/scenario/123 are rewritten to /app/?/scenario/123
+   so the app router can restore them. Everything else renders the branded
+   404 below (previously this script tried to write document.body before
+   <body> existed and threw). */
+(function(){
+  var pathSegmentsToKeep = 1;
+  var l = window.location;
+  if (l.pathname.indexOf('/app/') === 0 || l.pathname === '/app') {
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  }
+})();
+</script>
+<script>
+(function(){try{var s=localStorage.getItem('tr-theme')||localStorage.getItem('theme');var t=(s==='light'||s==='dark')?s:'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+</script>
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/legal.css">
+</head>
+<body>
+
+<nav class="lnav">
+<div class="lnav-c">
+<a href="/" class="logo">
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
+<span class="logo-t">ThreatReady</span>
+</a>
+<div class="lnav-r">
+<button class="theme-tog" id="themeTog" aria-label="Toggle light / dark theme" title="Toggle theme">
+<svg class="sun-i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="moon-i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<a href="/" class="back"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to home</span></a>
+</div>
+</div>
+</nav>
+
+<main class="nf">
+<div>
+<div class="nf-code" aria-hidden="true">404</div>
+<h1>Page not found.</h1>
+<p>The page you're looking for doesn't exist or has moved. Nothing here was exfiltrated — it just isn't where you expected.</p>
+<div class="nf-a">
+<a href="/" class="btn btn-primary">Back to ThreatReady</a>
+<a href="/#trydemo" class="btn btn-secondary">Try the demo</a>
+<a href="https://threatready.io/app/" class="btn btn-secondary" rel="noopener noreferrer">Open the app</a>
+</div>
+</div>
+</main>
+
+<script>
+(function(){var t=document.getElementById('themeTog');if(!t)return;t.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tr-theme',n);}catch(e){}});})();
+</script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="ThreatReady security practices — infrastructure, encryption, access controls, and responsible disclosure program.">
+<meta name="robots" content="index, follow">
+<title>Attack of the Week · ThreatReady</title>
+<meta name="description" content="Real attack chains, dissected weekly — S3 misconfiguration to exfiltration, Kubernetes RBAC bypass, CI/CD pipeline injection, Azure AD token theft, SIEM detection gaps and JWT claim confusion.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<script>
+(function(){try{var s=localStorage.getItem('tr-theme')||localStorage.getItem('theme');var t=(s==='light'||s==='dark')?s:'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="legal.css">
+<style>
+.bsec{background:var(--bg)}
+.bsec-h{text-align:center;max-width:680px;margin:0 auto 36px}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:inline-block}
+.sub{font-size:1.05rem;color:var(--text-2);max-width:700px;margin:0 auto;line-height:1.55}
+.grad{background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.container{max-width:var(--container);margin:0 auto;padding:0 32px}
+/* ---------- Blog ---------- */
+.bsec{background:var(--bg)}
+.bsec-h{text-align:center;max-width:680px;margin:0 auto 36px}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:var(--container);margin:0 auto;padding:0 32px}
+.bcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column}
+.bcard:hover{border-color:rgba(192,132,252,.4);transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.bcard-hero{position:relative;background:linear-gradient(135deg,rgba(124,58,237,.14) 0%,var(--bg-subtle) 100%);padding:22px;border-bottom:1px solid var(--border-2);min-height:150px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.bcard-hero svg.diag{width:100%;height:auto;max-width:280px}
+.bcard-badge{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:var(--r-full);font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--grad-btn);color:#fff;z-index:1}
+.bcard-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.bcard-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;font-size:.74rem;color:var(--text-3);font-weight:500}
+.bcard-meta svg{width:12px;height:12px}
+.bcard-meta-dot{width:3px;height:3px;background:var(--text-3);border-radius:50%}
+.bcard h3{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.35;letter-spacing:-.01em}
+.bcard p{font-size:.9rem;color:var(--text-2);line-height:1.55;margin-bottom:14px;flex:1}
+.bcard-tech{display:flex;flex-wrap:wrap;gap:6px}
+.bcard-tech-chip{font-size:.66rem;font-weight:600;font-family:var(--mono);padding:3px 8px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--r-full);color:var(--text-2)}
+.bcard-tech-chip.mitre{background:var(--primary-subtle);color:var(--accent);border-color:transparent}
+.bmore{text-align:center;margin-top:28px;font-size:.9rem;color:var(--text-3)}
+@media (max-width:980px){.bgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.bgrid{grid-template-columns:1fr;padding:0 16px}}
+
+
+/* diagram colour normalisation (inline SVG attrs → theme) */
+.adiag rect[fill="#fff"],.bcard-hero rect[fill="#fff"],.dab rect[fill="#f0f1f4"]{fill:var(--surface-2)}
+.adiag rect[stroke="#d4d1d9"],.bcard-hero rect[stroke="#d4d1d9"],.dab rect[stroke="#c4c7ce"]{stroke:var(--border)}
+.adiag rect[fill="#f5f3ff"],.bcard-hero rect[fill="#f5f3ff"]{fill:rgba(124,58,237,.18)}
+.adiag rect[fill="#fef2f2"],.bcard-hero rect[fill="#fef2f2"]{fill:rgba(239,68,68,.16)}
+.adiag rect[fill="#fef3c7"],.bcard-hero rect[fill="#fef3c7"]{fill:rgba(245,158,11,.16)}
+.adiag text[fill="#0f0a1a"],.bcard-hero text[fill="#0f0a1a"],.dab text[fill="#1c1e24"]{fill:var(--text)}
+.adiag text[fill="#737383"],.bcard-hero text[fill="#737383"],.dab text[fill="#5a5d66"]{fill:var(--text-3)}
+.adiag text[fill="#7c3aed"],.bcard-hero text[fill="#7c3aed"],.dab text[fill="#7c3aed"]{fill:var(--accent)}
+.adiag path[stroke="#737383"],.bcard-hero path[stroke="#737383"],.dab path[stroke="#5a5d66"],.dab path[stroke="#737383"]{stroke:var(--text-3)}
+.adiag text,.bcard-hero text,.dab text{font-family:var(--font)}
+
+
+.bcard .diag text{font-family:var(--font)}
+.bnote{text-align:center;font-size:.85rem;color:var(--text-3);margin:28px auto 0;max-width:620px;line-height:1.55}
+</style>
+</head>
+<body>
+
+<nav class="lnav">
+<div class="lnav-c">
+<a href="index.html" class="logo">
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
+<span class="logo-t">ThreatReady</span>
+</a>
+<ul class="lnav-links" aria-label="Pages">
+<li><a href="index.html">Home</a></li>
+<li><a href="how-it-works.html">How it works</a></li>
+<li><a href="transparent-scoring.html">Scoring</a></li>
+<li><a href="rubric.html">Rubric</a></li>
+<li><a href="sample-report.html">Sample report</a></li>
+<li><a href="security.html">Security</a></li>
+</ul>
+<div class="lnav-r">
+<button class="theme-tog" id="themeTog" aria-label="Toggle dark mode" title="Toggle dark mode">
+<svg class="sun-i" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="moon-i" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<a href="index.html" class="back"><svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to home</span></a>
+</div>
+</div>
+</nav>
+
+<main class="bsec" style="padding:56px 0 72px">
+<div class="container">
+<div class="bsec-h">
+<span class="eyebrow">Attack of the Week</span>
+<h1 style="font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:12px">Real attack chains, <span class="grad">dissected weekly</span></h1>
+<p class="sub">A short, high-signal read every Friday. The architecture, the attack chain, the reasoning path — the same material our scenarios are built from.</p>
+</div>
+</div>
+<div class="bgrid">
+
+<article class="bcard" data-edition="0">
+<div class="bcard-hero">
+<span class="bcard-badge">Edition 01</span>
+<svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="20" width="60" height="30" rx="4" fill="#fff" stroke="#d4d1d9"/>
+<text x="40" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#0f0a1a">S3 · PII</text>
+<rect x="110" y="20" width="60" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="140" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">IAM Role</text>
+<text x="140" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">wide scope</text>
+<rect x="210" y="20" width="60" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+<text x="240" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#ef4444">Attacker</text>
+<rect x="110" y="90" width="60" height="30" rx="4" fill="#f5f3ff" stroke="#7c3aed"/>
+<text x="140" y="109" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#7c3aed">CloudTrail</text>
+<path d="M70 35 L110 35" stroke="#737383" stroke-width="1"/>
+<path d="M170 35 L210 35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
+<path d="M140 50 L140 90" stroke="#737383" stroke-width="1"/>
+</svg>
+</div>
+<div class="bcard-body">
+<div class="bcard-meta">
+<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<span>6 min read</span>
+<span class="bcard-meta-dot"></span>
+<span>Cloud Security</span>
+</div>
+<h3>S3 Bucket Misconfiguration &rarr; IAM Privilege Escalation &rarr; Data Exfiltration</h3>
+<p>How a public S3 bucket and a long-lived IAM credential walked 47,000 PII records out the door.</p>
+<div class="bcard-tech">
+<span class="bcard-tech-chip">AWS</span>
+<span class="bcard-tech-chip mitre">T1078</span>
+<span class="bcard-tech-chip mitre">T1537</span>
+<span class="bcard-tech-chip mitre">T1552</span>
+</div>
+</div>
+</article>
+
+<article class="bcard" data-edition="1">
+<div class="bcard-hero">
+<span class="bcard-badge">Edition 02</span>
+<svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="20" width="70" height="30" rx="4" fill="#fff" stroke="#d4d1d9"/>
+<text x="45" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">Pod</text>
+<text x="45" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#737383">compromised</text>
+<rect x="100" y="20" width="80" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="140" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">ServiceAccount</text>
+<text x="140" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">cluster-admin</text>
+<rect x="200" y="20" width="70" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+<text x="235" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#ef4444">Node fs</text>
+<rect x="100" y="90" width="80" height="30" rx="4" fill="#f5f3ff" stroke="#7c3aed"/>
+<text x="140" y="109" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#7c3aed">Audit logs</text>
+<path d="M80 35 L100 35" stroke="#737383" stroke-width="1"/>
+<path d="M180 35 L200 35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
+<path d="M140 50 L140 90" stroke="#737383" stroke-width="1"/>
+</svg>
+</div>
+<div class="bcard-body">
+<div class="bcard-meta">
+<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<span>8 min read</span>
+<span class="bcard-meta-dot"></span>
+<span>Kubernetes</span>
+</div>
+<h3>Kubernetes RBAC Bypass &rarr; Container Escape &rarr; Lateral Movement to Node</h3>
+<p>Pod compromise to full cluster control in four RBAC hops — and the detections that actually catch it.</p>
+<div class="bcard-tech">
+<span class="bcard-tech-chip">K8s</span>
+<span class="bcard-tech-chip mitre">T1552.007</span>
+<span class="bcard-tech-chip mitre">T1611</span>
+<span class="bcard-tech-chip mitre">T1068</span>
+</div>
+</div>
+</article>
+
+<article class="bcard" data-edition="2">
+<div class="bcard-hero">
+<span class="bcard-badge">Edition 03</span>
+<svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="20" width="60" height="30" rx="4" fill="#fff" stroke="#d4d1d9"/>
+<text x="40" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#0f0a1a">PR merge</text>
+<rect x="110" y="20" width="60" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+<text x="140" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">CI runner</text>
+<text x="140" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#ef4444">injected</text>
+<rect x="210" y="20" width="60" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="240" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">Secrets</text>
+<text x="240" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">leaked</text>
+<rect x="110" y="90" width="60" height="30" rx="4" fill="#fef2f2" stroke="#ef4444"/>
+<text x="140" y="109" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#ef4444">Cloud admin</text>
+<path d="M70 35 L110 35" stroke="#737383" stroke-width="1"/>
+<path d="M170 35 L210 35" stroke="#737383" stroke-width="1"/>
+<path d="M240 50 L140 90" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
+</svg>
+</div>
+<div class="bcard-body">
+<div class="bcard-meta">
+<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<span>7 min read</span>
+<span class="bcard-meta-dot"></span>
+<span>DevSecOps</span>
+</div>
+<h3>CI/CD Pipeline Injection &rarr; Secret Exposure &rarr; Cloud Account Takeover</h3>
+<p>One malicious PR. Ten minutes to cloud account takeover. The four controls that stop it.</p>
+<div class="bcard-tech">
+<span class="bcard-tech-chip">GitHub Actions</span>
+<span class="bcard-tech-chip mitre">T1195.002</span>
+<span class="bcard-tech-chip mitre">T1552.004</span>
+</div>
+</div>
+</article>
+
+<article class="bcard" data-edition="3">
+<div class="bcard-hero">
+<span class="bcard-badge">Edition 04</span>
+<svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="20" width="70" height="30" rx="4" fill="#fff" stroke="#d4d1d9"/>
+<text x="45" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#737383">Azure AD</text>
+<rect x="110" y="20" width="70" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="145" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">Token theft</text>
+<text x="145" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">OAuth</text>
+<rect x="200" y="20" width="70" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+<text x="235" y="35" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#ef4444">Tenant B</text>
+<text x="235" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#ef4444">accessed</text>
+<rect x="110" y="90" width="70" height="30" rx="4" fill="#f5f3ff" stroke="#7c3aed"/>
+<text x="145" y="109" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#7c3aed">Sign-in logs</text>
+<path d="M80 35 L110 35" stroke="#737383" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M180 35 L200 35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
+<path d="M145 50 L145 90" stroke="#737383" stroke-width="1" stroke-dasharray="3,3"/>
+</svg>
+</div>
+<div class="bcard-body">
+<div class="bcard-meta">
+<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<span>7 min read</span>
+<span class="bcard-meta-dot"></span>
+<span>Identity</span>
+</div>
+<h3>Azure AD Token Theft &rarr; Cross-Tenant Access &rarr; Persistent Backdoor</h3>
+<p>OAuth consent attacks survive password resets and MFA rotation. Here's how to spot them.</p>
+<div class="bcard-tech">
+<span class="bcard-tech-chip">Azure</span>
+<span class="bcard-tech-chip mitre">T1550.001</span>
+<span class="bcard-tech-chip mitre">T1098.001</span>
+</div>
+</div>
+</article>
+
+<article class="bcard" data-edition="4">
+<div class="bcard-hero">
+<span class="bcard-badge">Edition 05</span>
+<svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="20" width="60" height="30" rx="4" fill="#fff" stroke="#d4d1d9"/>
+<text x="40" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#737383">SIEM</text>
+<rect x="110" y="20" width="60" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="140" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">EDR gap</text>
+<text x="140" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">silent</text>
+<rect x="210" y="20" width="60" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+<text x="240" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#ef4444">Ransomware</text>
+<path d="M70 35 L110 35" stroke="#737383" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M170 35 L210 35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
+</svg>
+</div>
+<div class="bcard-body">
+<div class="bcard-meta">
+<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<span>9 min read</span>
+<span class="bcard-meta-dot"></span>
+<span>Detection</span>
+</div>
+<h3>When the SIEM Misses: Engineering Detections for the Gap</h3>
+<p>SIEM green. EDR green. Foothold lasted 11 days. Three free detections that would have caught it in hour one.</p>
+<div class="bcard-tech">
+<span class="bcard-tech-chip">SIEM</span>
+<span class="bcard-tech-chip">EDR</span>
+<span class="bcard-tech-chip mitre">T1562.001</span>
+</div>
+</div>
+</article>
+
+<article class="bcard" data-edition="5">
+<div class="bcard-hero">
+<span class="bcard-badge">Edition 06</span>
+<svg class="diag" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="20" width="60" height="30" rx="4" fill="#fff" stroke="#d4d1d9"/>
+<text x="40" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#737383">API</text>
+<rect x="110" y="20" width="60" height="30" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="140" y="35" text-anchor="middle" font-family="Inter" font-size="8" font-weight="600" fill="#0f0a1a">IDOR</text>
+<text x="140" y="46" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">unchecked</text>
+<rect x="210" y="20" width="60" height="30" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+<text x="240" y="39" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#ef4444">PII dump</text>
+<path d="M70 35 L110 35" stroke="#737383" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M170 35 L210 35" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
+</svg>
+</div>
+<div class="bcard-body">
+<div class="bcard-meta">
+<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<span>5 min read</span>
+<span class="bcard-meta-dot"></span>
+<span>AppSec</span>
+</div>
+<h3>The IDOR That Wasn't: Authorization Bypass via JWT Claim Confusion</h3>
+<p>JWT claim confusion slips past every WAF — and the framework-level fix that actually works.</p>
+<div class="bcard-tech">
+<span class="bcard-tech-chip">OWASP API</span>
+<span class="bcard-tech-chip mitre">T1078</span>
+<span class="bcard-tech-chip">JWT</span>
+</div>
+</div>
+</article>
+
+</div>
+
+
+<p class="bnote">New edition every Friday. No fluff, no filler, no sponsor reads. Editions are listed oldest first.</p>
+</main>
+
+<footer class="lft">
+<div class="lft-c">
+<a href="index.html" class="logo">
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
+<span class="logo-t">ThreatReady</span>
+</a>
+<ul class="lft-l">
+<li><a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy</a></li>
+<li><a href="terms.html" target="_blank" rel="noopener noreferrer">Terms</a></li>
+<li><a href="security.html" target="_blank" rel="noopener noreferrer">Security</a></li>
+<li><a href="rubric.html" target="_blank" rel="noopener noreferrer">Scoring Rubric</a></li>
+<li><a href="sample-report.html" target="_blank" rel="noopener noreferrer">Sample Report</a></li>
+<li><a href="dpa.html" target="_blank" rel="noopener noreferrer">DPA</a></li>
+</ul>
+</div>
+<div class="aprod"><span>A PRODUCT OF</span><a href="https://aerovanttech.com/" target="_blank" rel="noopener">AEROVANT TECHNOLOGIES<svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></div><div class="lft-bot">&copy; 2026 <a href="https://aerovanttech.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Aerovant Technologies Pvt. Ltd.</a> All rights reserved.</div>
+</footer>
+
+
+<script>
+(function(){var t=document.getElementById('themeTog');if(!t)return;t.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'dark';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tr-theme',n);}catch(e){}});})();
+</script>
+
+<script>
+/* Smart back link — remember where the visitor came from.
+   Priority:  ?from=<id>  >  referrer hash  >  plain index.html  */
+(function(){
+  var back = document.querySelector('a.back');
+  if(!back) return;
+  var target = 'index.html';
+  var label = 'Back to home';
+  try{
+    var params = new URLSearchParams(location.search);
+    var from = params.get('from');
+    if(from && /^[a-z0-9_-]+$/i.test(from)){
+      target = 'index.html#' + from;
+      label = 'Back to site';
+    } else if(document.referrer){
+      var r = new URL(document.referrer, location.href);
+      if(r.origin === location.origin && (r.pathname.endsWith('/index.html') || r.pathname === '/' || r.pathname === '')){
+        if(r.hash){
+          target = 'index.html' + r.hash;
+          label = 'Back to site';
+        }
+      }
+    }
+  }catch(e){}
+  // only update href (keep the arrow SVG + text intact)
+  back.setAttribute('href', target);
+  // update the trailing text node after the SVG
+  var tn = null;
+  back.childNodes.forEach(function(n){ if(n.nodeType === 3 && n.nodeValue.trim()) tn = n; });
+  if(tn) tn.nodeValue = label;
+})();
+</script>
+<script src="back-to-top.js" defer></script>
+</body>
+</html>

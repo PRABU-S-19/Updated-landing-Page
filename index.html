@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://app.threatready.io https://www.google-analytics.com https://threatready-db.onrender.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta http-equiv="X-DNS-Prefetch-Control" content="off">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=(self), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(self), encrypted-media=(self), fullscreen=(self), picture-in-picture=(), display-capture=(), midi=(), serial=(), bluetooth=(), interest-cohort=()">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no, email=no, address=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#080713">
+<meta name="description" content="Build practical cybersecurity skills through role-based Lab Simulations, the Attack Reasoning Lab and a JD-tailored InterviewPrep — all scored on one published rubric. For engineers, freshers and the teams that hire them.">
+<meta name="keywords" content="cybersecurity skills platform, attack reasoning, security lab simulations, cybersecurity interview prep, candidate assessment, MITRE ATT&CK scenarios, cloud security training">
+<meta name="author" content="Aerovant Technologies Pvt Ltd">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://threatready.io/">
+<meta property="og:title" content="ThreatReady — Practise, Reason and Prove Cybersecurity Skills">
+<meta property="og:description" content="Certified is not job-ready. Role-based simulations, attack-reasoning scenarios and a JD-tailored interview, scored by one transparent 3-Pass AI engine.">
+<meta property="og:site_name" content="ThreatReady">
+<meta property="og:image" content="https://threatready.io/sample-report-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="720">
+<meta name="twitter:image" content="https://threatready.io/sample-report-preview.png">
+<link rel="canonical" href="https://threatready.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ThreatReady — Practise, Reason and Prove Cybersecurity Skills">
+<meta name="twitter:description" content="Attack Reasoning Lab · Lab Simulations · InterviewPrep. Three pillars, one published rubric, one report hiring teams can read.">
+<title>ThreatReady | Practise, Reason and Prove Cybersecurity Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="home.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="48x48" href="favicon-48.png">
+<script>
+(function(){try{var s=localStorage.getItem('tr-theme');var t=(s==='light'||s==='dark')?s:'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do the Attack Reasoning Lab, Lab Simulations and InterviewPrep differ?","acceptedAnswer":{"@type":"Answer","text":"They are three stages of one journey. The Lab tests how you reason through an attack on a real architecture. Lab Simulations are role-based tasks that mirror daily security work. InterviewPrep builds an interview from a job description and your resume. All three use the same five-dimension rubric."}},{"@type":"Question","name":"Do I need prior cybersecurity experience?","acceptedAnswer":{"@type":"Answer","text":"No. Every role track starts at Beginner and the free plan covers Beginner on any role. Lab Simulations are designed for freshers and final-year students."}},{"@type":"Question","name":"How are scores generated and how should I read them?","acceptedAnswer":{"@type":"Answer","text":"Each answer goes through three AI passes — Evaluator, Challenger, Reconciler — against a published rubric with five dimensions and five written score bands each. When passes disagree significantly the score carries a confidence flag. A score is evidence to review alongside the transcript, not a verdict."}},{"@type":"Question","name":"What happens if I disagree with a score?","acceptedAnswer":{"@type":"Answer","text":"Challenge it within 14 days by emailing admin@aerovanttech.com with your session ID. A security engineer reviews the transcript and rubric application within 7 business days and replies with a confirmed or revised score."}},{"@type":"Question","name":"How is my resume and assessment data handled?","acceptedAnswer":{"@type":"Answer","text":"Production data is stored in India (AWS Mumbai), encrypted in transit and at rest. Assessment text is sent to Anthropic's Claude API for scoring, which does not train on it. Raw scoring outputs are kept 90 days for audit. GDPR and India DPDPA 2023 rights are supported."}},{"@type":"Question","name":"How can an organisation run a pilot or discuss team requirements?","acceptedAnswer":{"@type":"Answer","text":"Hiring teams can request a pilot with free candidate assessments. Engineering teams, colleges and services enquiries go through the contact form on the homepage or humanresource@aerovanttech.com."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"ThreatReady","legalName":"Aerovant Technologies Pvt Ltd","url":"https://threatready.io","description":"Cybersecurity hiring assessment platform that tests real attack reasoning."}
+</script>
+<!--
+  SECURITY HEADERS — RECOMMENDED ORIGIN-LEVEL CONFIGURATION
+  The following should be set as actual HTTP response headers by the hosting layer
+  (Vercel, Cloudflare, Nginx, etc.). Meta-equivalents are documentation only:
+
+    Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+    X-Frame-Options: DENY
+    X-Content-Type-Options: nosniff
+    Referrer-Policy: strict-origin-when-cross-origin
+    Cross-Origin-Opener-Policy: same-origin
+    Cross-Origin-Embedder-Policy: require-corp
+    Cross-Origin-Resource-Policy: same-origin
+    Cache-Control: no-store, no-cache, must-revalidate, private  (for authenticated routes)
+    Cache-Control: public, max-age=3600  (for static landing)
+
+  Compliance reference (internal):
+    - GDPR / DPDP Act 2023 — cookie consent banner present (#cb)
+    - Indian IT Act 2000 — reasonable security practices
+    - SOC 2 Type 1 readiness — Month 6 target
+-->
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<!-- Icon sprite: icons below are referenced by id (use elements pointing at the i- symbols) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-check-c" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".18"/><path d="M7.5 12.2l3 3 6-6.2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-brain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5a3 3 0 00-3 3v.3A3 3 0 004 10.6a3 3 0 00.8 4.9A3 3 0 008 19.5h1V4.5z"/><path d="M15 4.5a3 3 0 013 3v.3a3 3 0 012 2.8 3 3 0 01-.8 4.9 3 3 0 01-3.2 4H15V4.5z"/><path d="M9 4.5V3.6A1.6 1.6 0 0110.6 2h2.8A1.6 1.6 0 0115 3.6v.9M9 9h2M13 13h2M9 15h2"/></g></symbol>
+<symbol id="i-terminal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9l3 3-3 3M12.5 15H17"/></g></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 00-2 2v15a2 2 0 002 2h10a2 2 0 002-2v-12z"/><path d="M14 2.5v5h5M8.5 12.5h7M8.5 16h5"/></g></symbol>
+<symbol id="i-report" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 00-2 2v15a2 2 0 002 2h10a2 2 0 002-2v-12z"/><path d="M14 2.5v5h5M9 18v-3M12 18v-5M15 18v-2"/></g></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></g></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.6a3.5 3.5 0 010 6.8M18 14a6.5 6.5 0 013.5 6"/></g></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 016.5 3h11A2.5 2.5 0 0120 5.5v8a2.5 2.5 0 01-2.5 2.5H10l-4.5 4v-4h0A1.5 1.5 0 014 14.5z"/><path d="M8.5 8.5h7M8.5 11.5h4.5"/></g></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8 3.2v5.8c0 4.8-3.3 8.4-8 10-4.7-1.6-8-5.2-8-10V5.7z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></g></symbol>
+<symbol id="i-rubric" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></g></symbol>
+<symbol id="i-card" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></g></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 018 0v3"/></g></symbol>
+<symbol id="i-scale" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M5 7h14M5 7l-3 7a3.5 3.5 0 006 0zM19 7l-3 7a3.5 3.5 0 006 0z"/></g></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></g></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9L12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.5c1.5 1.6 3.4 2.5 5.5 2.5s4-.9 5.5-2.5V11M21.5 9v5"/></g></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="7" rx="2"/><rect x="3.5" y="13.5" width="17" height="7" rx="2"/><path d="M7.5 7h.01M7.5 17h.01M11 7h5M11 17h5"/></g></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></g></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></g></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7M15 8h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+<symbol id="i-flow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8.5 6h7M7.2 8.2l3.6 7.6M16.8 8.2l-3.6 7.6"/></g></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 3.8 6 3.8 9s-1.3 6-3.8 9c-2.5-3-3.8-6-3.8-9s1.3-6 3.8-9z"/></g></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21"/></g></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4M12 17h.01"/></g></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></g></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div id="top" aria-hidden="true"></div>
+
+<!-- 1 · NAVIGATION -->
+<nav class="nav" id="nav" aria-label="Primary">
+<div class="nav-c">
+<div class="brand-stack">
+<a href="#top" class="logo" aria-label="ThreatReady home">
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
+<span class="logo-t">ThreatReady</span>
+</a>
+</div>
+<ul class="nav-links">
+<li><a href="#top" class="nav-home">Home</a></li>
+<li class="nav-drop">
+<button type="button" class="nav-drop-trig" aria-haspopup="true" aria-expanded="false">Platform <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<ul class="nav-drop-menu wide" role="menu">
+<li role="none"><a role="menuitem" class="nd p-think" href="#pillar-think"><span class="nd-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a7 7 0 00-4 12.7V18a2 2 0 002 2h4a2 2 0 002-2v-2.3A7 7 0 0012 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span><b>THINK · Attack Reasoning Lab</b><span>Adaptive attack scenarios, scored on a published rubric</span></span></a></li>
+<li role="none"><a role="menuitem" class="nd p-do" href="#pillar-do"><span class="nd-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 15l2 2 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>DO · Lab Simulations</b><span>Role-based tasks from real daily security work</span></span></a></li>
+<li role="none"><a role="menuitem" class="nd p-prove" href="#pillar-prove"><span class="nd-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v6h6M9 13l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>PROVE · InterviewPrep</b><span>A JD-tailored interview and a report you can share</span></span></a></li>
+</ul>
+</li>
+<li><a href="#organisations">For Organisations</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li class="nav-drop">
+<button type="button" class="nav-drop-trig" aria-haspopup="true" aria-expanded="false">Resources <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<ul class="nav-drop-menu" role="menu">
+<li role="none"><a role="menuitem" href="how-it-works.html">How it works</a></li>
+<li role="none"><a role="menuitem" href="transparent-scoring.html">Transparent scoring</a></li>
+<li role="none"><a role="menuitem" href="rubric.html">Scoring rubric</a></li>
+<li role="none"><a role="menuitem" href="sample-report.html">Sample report</a></li>
+<li role="none"><a role="menuitem" href="attack-of-the-week.html">Attack of the Week</a></li>
+<li role="none"><a role="menuitem" href="security.html">Security</a></li>
+</ul>
+</li>
+<li><a href="attack-of-the-week.html">Blog</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<div class="nav-act">
+<button class="theme-tog" id="themeTog" aria-label="Toggle light / dark theme" title="Toggle theme">
+<svg class="sun-i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="moon-i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<a href="https://threatready.io/app/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm nav-si">Sign In</a>
+<a href="https://threatready.io/app/auth?mode=signup" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm nav-si">Start Free</a>
+<button class="mtog" id="mtog" aria-label="Menu" aria-expanded="false" aria-controls="mmenu"><svg class="mtog-h" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><svg class="mtog-x" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+</div>
+</div>
+<div class="mmenu" id="mmenu" role="dialog" aria-modal="true" aria-label="Main menu">
+<div class="mmenu-inner">
+<ul>
+<li><a href="#top">Home</a></li>
+<li class="mmenu-grp"><span class="mmenu-grp-l">Platform</span></li>
+<li><a href="#pillar-think" class="mmenu-sub">THINK · Attack Reasoning Lab</a></li>
+<li><a href="#pillar-do" class="mmenu-sub">DO · Lab Simulations</a></li>
+<li><a href="#pillar-prove" class="mmenu-sub">PROVE · InterviewPrep</a></li>
+<li><a href="#organisations">For Organisations</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li class="mmenu-grp"><span class="mmenu-grp-l">Resources</span></li>
+<li><a href="how-it-works.html" class="mmenu-sub">How it works</a></li>
+<li><a href="rubric.html" class="mmenu-sub">Scoring rubric</a></li>
+<li><a href="sample-report.html" class="mmenu-sub">Sample report</a></li>
+<li><a href="attack-of-the-week.html" class="mmenu-sub">Attack of the Week</a></li>
+<li><a href="attack-of-the-week.html">Blog</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="https://threatready.io/app/" target="_blank" rel="noopener noreferrer">Sign In</a></li>
+<li><a href="https://threatready.io/app/auth?mode=signup" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Start Free</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<main id="main">
+
+<!-- 2 · HERO -->
+<section class="hero" id="hero" aria-labelledby="hero-h">
+<div class="container hero-grid">
+<div class="hero-copy">
+<p class="hero-eyebrow">Practise · Reason · Prove · Build your security career</p>
+<h1 id="hero-h">Certified is not <span class="h1-grad">job&#8209;ready.</span></h1>
+<p class="hero-tag">We close the gap — and prove it.</p>
+<p class="hero-sub">Build practical security skills through role-based simulations, attack-reasoning scenarios and tailored interview preparation.</p>
+<div class="hero-cta">
+<a href="https://threatready.io/app/auth?mode=signup" target="_blank" rel="noopener noreferrer" class="btn btn-cta btn-lg">Start Free <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+<a href="#trydemo" class="btn btn-outline btn-lg"><svg aria-hidden="true"><use href="#i-play"/></svg>Watch Demo</a>
+</div>
+<ul class="hero-trust" aria-label="Platform facts">
+<li><span class="ht-ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>MITRE ATT&amp;CK mapped</li>
+<li><a href="rubric.html"><span class="ht-ic"><svg aria-hidden="true"><use href="#i-rubric"/></svg></span>Transparent rubric</a></li>
+<li><span class="ht-ic"><svg aria-hidden="true"><use href="#i-card"/></svg></span>No credit card required</li>
+</ul>
+</div>
+
+<!-- Hero product composition: laptop dashboard (interactive preview tabs) + floating summary panels. Concept preview, sample data. -->
+<div class="hero-visual" role="group" aria-label="Concept preview of the ThreatReady workspace with sample data">
+<svg class="hv-wires" aria-hidden="true"></svg>
+
+<div class="laptop">
+<div class="lt-screen">
+<div class="db">
+<aside class="db-side" aria-hidden="true">
+<span class="db-logo logo-i"></span>
+<span class="on"><svg><use href="#i-grid"/></svg>Dashboard</span>
+<span><svg><use href="#i-terminal"/></svg>Simulations</span>
+<span><svg><use href="#i-brain"/></svg>Attack Lab</span>
+<span><svg><use href="#i-chat"/></svg>InterviewPrep</span>
+<span><svg><use href="#i-report"/></svg>Reports</span>
+<span><svg><use href="#i-chart"/></svg>Progress</span>
+</aside>
+<div class="db-main">
+<div class="db-top">
+<div><b>Cloud Security Track</b><small>Practice &amp; assessment journey</small></div>
+<span class="db-user" aria-hidden="true"><i></i>Sample learner</span>
+</div>
+<ol class="db-steps" aria-label="Journey progress (sample)">
+<li class="done"><i>1</i>Practise</li>
+<li class="on"><i>2</i>Reason</li>
+<li><i>3</i>Prove</li>
+<li><i>4</i>Get report</li>
+</ol>
+<div class="db-mods" role="tablist" aria-label="Preview a module">
+<button type="button" class="db-mod p-do" role="tab" id="dbTab0" aria-selected="true" aria-controls="dbPanel0"><span class="db-badge">In progress</span><b>Lab Simulations</b><small>Review an IAM policy</small><span class="db-prog" aria-hidden="true"><i style="--w:25%"></i></span><em>3 / 12 tasks</em></button>
+<button type="button" class="db-mod p-think" role="tab" id="dbTab1" aria-selected="false" aria-controls="dbPanel1" tabindex="-1"><span class="db-badge">Adaptive</span><b>Attack Reasoning</b><small>Lambda exfiltration</small><span class="db-prog" aria-hidden="true"><i style="--w:40%"></i></span><em>Q2 of 5</em></button>
+<button type="button" class="db-mod p-prove" role="tab" id="dbTab2" aria-selected="false" aria-controls="dbPanel2" tabindex="-1"><span class="db-badge">JD-tailored</span><b>InterviewPrep</b><small>Cloud Security Engineer</small><span class="db-prog" aria-hidden="true"><i style="--w:0%"></i></span><em>0 / 6 questions</em></button>
+</div>
+<div class="db-panels">
+<div class="db-panel p-do a" id="dbPanel0" role="tabpanel" aria-labelledby="dbTab0">
+<div class="db-code" aria-label="IAM policy excerpt"><span>"Action": [<mark>"s3:*"</mark>, <mark>"secrets:*"</mark>],</span><span>"Resource": <mark>"*"</mark></span></div>
+<ul class="db-find"><li class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Wildcard on s3:* flagged</li><li class="warn"><svg aria-hidden="true"><use href="#i-alert"/></svg>Resource "*" still open</li></ul>
+</div>
+<div class="db-panel p-think" id="dbPanel1" role="tabpanel" aria-labelledby="dbTab1" hidden>
+<div class="db-chain" aria-label="Attack chain: Internet to Lambda to S3 with customer data"><span>Internet</span><i></i><span class="bad">Lambda</span><i class="bad"></i><span class="bad">S3 · PII</span></div>
+<p class="db-q">Outbound traffic to 45.x.x.x. The role holds <code>s3:*</code>. First containment step?</p>
+</div>
+<div class="db-panel p-prove" id="dbPanel2" role="tabpanel" aria-labelledby="dbTab2" hidden>
+<p class="db-jd">From the JD: <mark>enforce least privilege</mark> · <mark>lead incident containment</mark></p>
+<p class="db-q">An admin role appeared via CI despite your SCPs. Walk me through how.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lt-base" aria-hidden="true"></div>
+</div>
+
+<div data-wire="l" class="fp fp-attack p-think" aria-hidden="true"><span class="fp-ic"><svg><use href="#i-brain"/></svg></span><span><b>Analyse real attacks</b><small>T1078 → T1537</small></span></div>
+<div data-wire="l" class="fp fp-sim p-do" aria-hidden="true"><span class="fp-ic"><svg><use href="#i-terminal"/></svg></span><span><b>Hands-on simulations</b><small>Triage · review · fix</small></span></div>
+<div data-wire="r" class="fp fp-skill" aria-hidden="true">
+<b class="fp-t">Skill assessment</b>
+<div class="fp-radar">
+<svg viewBox="0 0 100 100">
+<polygon class="rg" points="50.0,12.0 86.1,38.3 72.3,80.7 27.7,80.7 13.9,38.3"/>
+<polygon class="rg" points="50.0,21.5 77.1,41.2 66.8,73.1 33.2,73.1 22.9,41.2"/>
+<polygon class="rg" points="50.0,31.0 68.1,44.1 61.2,65.4 38.8,65.4 31.9,44.1"/>
+<path class="rg" d="M50 50L50 12M50 50L86.1 38.3M50 50L72.3 80.7M50 50L27.7 80.7M50 50L13.9 38.3"/>
+<polygon class="rd" points="50.0,18.8 78.2,40.8 66.8,73.1 33.9,72.1 21.1,40.6"/>
+</svg>
+<ul><li style="--c:#a78bfa">Threat ID</li><li style="--c:#2dd4bf">Containment</li><li style="--c:#f472b6">Blast radius</li><li style="--c:#fbbf24">Communication</li><li style="--c:#60a5fa">Frameworks</li></ul>
+</div>
+</div>
+<div data-wire="r" class="fp fp-interview p-prove" aria-hidden="true"><span class="fp-ic"><svg><use href="#i-users"/></svg></span><span><b>Interview preparation</b><small>Tailored to the JD</small></span></div>
+<div data-wire="r" class="fp fp-report" aria-hidden="true">
+<span class="fp-ic"><svg><use href="#i-report"/></svg></span>
+<div><b>Your assessment report</b>
+<ul><li><svg><use href="#i-check-c"/></svg>Per-dimension scores</li><li><svg><use href="#i-check-c"/></svg>Model answer beside yours</li><li><svg><use href="#i-check-c"/></svg>Shareable badge link</li></ul></div>
+</div>
+<p class="hv-cap">Concept preview · sample data, not a live account</p>
+</div>
+</div>
+</section>
+
+<!-- 3 · THREE PRODUCTS -->
+<section id="platform" class="sec-pillars" aria-labelledby="platform-h">
+<div class="container">
+<h2 id="platform-h" class="sr-only">The platform: three products, one journey</h2>
+<div class="pillars">
+
+<article class="pcard p-think" id="pillar-think">
+<div class="pc-top"><span class="pc-label"><svg aria-hidden="true"><use href="#i-brain"/></svg>Attack Reasoning Lab</span><a class="pc-go" href="#trydemo" tabindex="-1" aria-hidden="true"><svg><use href="#i-arrow"/></svg></a></div>
+<h3>Think like an attacker</h3>
+<p class="pc-desc">Reason through real attack scenarios and make decisions that stand up to scrutiny.</p>
+<div class="pc-vis pv-attack" role="img" aria-label="Attack path: Internet to API Gateway to a compromised Lambda, whose over-permissive IAM role reaches an S3 bucket holding customer data">
+<svg viewBox="0 0 320 132">
+<defs><marker id="apArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5 0 10z" fill="#f87171"/></marker></defs>
+<path class="ap-l" d="M58 40H96"/><path class="ap-l" d="M160 40H198"/>
+<path class="ap-l bad" d="M230 58V82" marker-end="url(#apArr)"/>
+<path class="ap-l bad" d="M198 104H168" marker-end="url(#apArr)"/>
+<path class="ap-l bad" d="M90 104H64" marker-end="url(#apArr)"/>
+<g class="ap-n"><rect x="6" y="22" width="52" height="36" rx="9"/><text x="32" y="44">Internet</text></g>
+<g class="ap-n"><rect x="96" y="22" width="64" height="36" rx="9"/><text x="128" y="44">API GW</text></g>
+<g class="ap-n bad"><rect x="198" y="22" width="64" height="36" rx="9"/><text x="230" y="44">Lambda</text></g>
+<g class="ap-n warn"><rect x="90" y="86" width="76" height="36" rx="9"/><text x="128" y="102">IAM role</text><text class="sm" x="128" y="114">s3:* secrets:*</text></g>
+<g class="ap-n bad"><rect x="198" y="86" width="64" height="36" rx="9"/><text x="230" y="102">Secrets</text><text class="sm" x="230" y="114">db creds</text></g>
+<g class="ap-n bad"><rect x="6" y="86" width="56" height="36" rx="9"/><text x="34" y="102">S3</text><text class="sm" x="34" y="114">PII</text></g>
+<g class="ap-alert"><circle cx="262" cy="22" r="11"/><path d="M262 16v7M262 27h.01"/></g>
+<g class="ap-tag"><rect x="270" y="56" width="46" height="18" rx="9"/><text x="293" y="68">T1537</text></g>
+</svg>
+</div>
+<ul class="pc-list">
+<li><svg aria-hidden="true"><use href="#i-check-c"/></svg>Scenarios mapped to MITRE ATT&amp;CK</li>
+<li><svg aria-hidden="true"><use href="#i-check-c"/></svg>Adaptive follow-up questions</li>
+<li><svg aria-hidden="true"><use href="#i-check-c"/></svg>Transparent 3-pass assessment</li>
+</ul>
+<div class="pc-cta"><a href="#trydemo" class="btn pc-btn">Explore Attack Reasoning <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a href="transparent-scoring.html" class="pc-more">How reasoning is scored</a></div>
+</article>
+
+<article class="pcard p-do" id="pillar-do">
+<div class="pc-top"><span class="pc-label"><svg aria-hidden="true"><use href="#i-terminal"/></svg>Lab Simulations</span><a class="pc-go" href="lab-simulations.html" tabindex="-1" aria-hidden="true"><svg><use href="#i-arrow"/></svg></a></div>
+<h3>Do the job before you have it</h3>
+<p class="pc-desc">Hands-on security tasks that mirror real engineering work.</p>
+<div class="pc-vis pv-console" role="img" aria-label="Simulation console: task list with step 2, analyse logs, selected; a log query and an evidence-found marker; progress bar at 40 percent">
+<ol class="pvc-tasks" aria-hidden="true">
+<li class="done">Investigate alert</li>
+<li class="on">Analyse logs</li>
+<li>Contain threat</li>
+<li>Write report</li>
+</ol>
+<div class="pvc-term" aria-hidden="true">
+<span class="c"># Investigate</span>
+<span>aws logs filter-log-events</span>
+<span>&nbsp;--log-group /aws/lambda/invoice-svc</span>
+<span>&nbsp;--filter "45.x.x.x"</span>
+<b class="pvc-ev"><svg><use href="#i-check"/></svg>Evidence found</b>
+<span class="pvc-bar"><i></i></span>
+</div>
+</div>
+<ul class="pc-list">
+<li><svg aria-hidden="true"><use href="#i-check-c"/></svg>Role-based practical tasks</li>
+<li><svg aria-hidden="true"><use href="#i-check-c"/></svg>Guided workflows for beginners</li>
+<li><svg aria-hidden="true"><use href="#i-check-c"/></svg>Progress tracked by role and level</li>
+</ul>
+<div class="pc-cta"><a href="lab-simulations.html" class="btn pc-btn">Explore Simulations <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><span class="pc-more muted">Rolling out track by track</span></div>
+</article>
+
+<article class="pcard p-prove" id="pillar-prove">
+<div class="pc-top"><span class="pc-label"><svg aria-hidden="true"><use href="#i-chat"/></svg>InterviewPrep</span><a class="pc-go" href="https://threatready.io/app/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"><svg><use href="#i-arrow"/></svg></a></div>
+<h3>Prove you're job&#8209;ready</h3>
+<p class="pc-desc">Practise a JD-tailored interview and receive a detailed assessment report.</p>
+<div class="pc-vis pv-interview" role="img" aria-label="Interview preview: a tailored question with a voice answer timer, beside a sample score of 78 out of 100 and four skill bars">
+<div class="pvi-q" aria-hidden="true">
+<b>Q2 · Tailored</b>
+<p>Your SCPs block iam:* — yet an admin role appeared via CI. How?</p>
+<div class="pvi-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span>02:34</span></div>
+</div>
+<div class="pvi-score" aria-hidden="true">
+<div class="ring"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="22"/><circle class="v" cx="30" cy="30" r="22" stroke-dasharray="107.8 138.2"/></svg><b>78</b></div>
+<small>Sample</small>
+<span style="--w:82%">Threat ID</span><span style="--w:78%">Containment</span><span style="--w:80%">Frameworks</span>
+</div>
+</div>
+<ul class="pc-list">
+<li><svg aria-hidden="true"><use href="#i-check-c"/></svg>Questions from the JD and your resume</li>
+<li><svg aria-hidden="true"><use href="#i-check-c"/></svg>Structured, five-dimension feedback</li>
+<li><svg aria-hidden="true"><use href="#i-check-c"/></svg>Shareable assessment report</li>
+</ul>
+<div class="pc-cta"><a href="https://threatready.io/app/" target="_blank" rel="noopener noreferrer" class="btn pc-btn">Explore InterviewPrep <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a href="sample-report.html" class="pc-more">See a sample report</a></div>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- 4 · WORKFLOW -->
+<section id="how" class="sec-flow" aria-labelledby="how-h">
+<div class="container">
+<div class="tc tight">
+<h2 id="how-h">From your first task to a measurable assessment.</h2>
+<p class="sub">A clear path from practice to proven capability.</p>
+</div>
+<div class="flow" role="tablist" aria-label="Journey steps">
+<button type="button" class="fstep" role="tab" id="ft0" aria-selected="true" aria-controls="fp0"><span class="fs-ic"><svg aria-hidden="true"><use href="#i-user"/></svg></span><span class="fs-t"><i>1</i>Pick a Role</span><span class="fs-d">Choose one of 15 security tracks and a level.</span></button>
+<button type="button" class="fstep p-do" role="tab" id="ft1" aria-selected="false" aria-controls="fp1" tabindex="-1"><span class="fs-ic"><svg aria-hidden="true"><use href="#i-terminal"/></svg></span><span class="fs-t"><i>2</i>Do the Work</span><span class="fs-d">Complete hands-on, role-based security tasks.</span></button>
+<button type="button" class="fstep p-think" role="tab" id="ft2" aria-selected="false" aria-controls="fp2" tabindex="-1"><span class="fs-ic"><svg aria-hidden="true"><use href="#i-brain"/></svg></span><span class="fs-t"><i>3</i>Investigate Attacks</span><span class="fs-d">Reason through a live scenario, question by question.</span></button>
+<button type="button" class="fstep p-prove" role="tab" id="ft3" aria-selected="false" aria-controls="fp3" tabindex="-1"><span class="fs-ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><span class="fs-t"><i>4</i>Prepare for Interviews</span><span class="fs-d">Answer questions built from a real job description.</span></button>
+<button type="button" class="fstep p-rep" role="tab" id="ft4" aria-selected="false" aria-controls="fp4" tabindex="-1"><span class="fs-ic"><svg aria-hidden="true"><use href="#i-report"/></svg></span><span class="fs-t"><i>5</i>Review Your Report</span><span class="fs-d">See per-dimension scores and track progress.</span></button>
+</div>
+<div class="flow-detail">
+<div class="fpanel a" id="fp0" role="tabpanel" aria-labelledby="ft0"><div><b>15 role tracks · Beginner → Expert</b><p>Each track has its own scenario pool, rubric weighting and badge progression. The free plan covers Beginner on any role.</p></div><a href="#roles" class="btn btn-secondary btn-sm">See the roles <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+<div class="fpanel" id="fp1" role="tabpanel" aria-labelledby="ft1" hidden><div><b>A real artefact, a real task</b><p>A policy, a log excerpt or a ticket: flag, fix, prioritise. Feedback shows what you caught and what you missed.</p></div><a href="lab-simulations.html" class="btn btn-secondary btn-sm">Walk through a simulation <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+<div class="fpanel" id="fp2" role="tabpanel" aria-labelledby="ft2" hidden><div><b>Five adaptive questions per scenario</b><p>A live attack chain on a real architecture. Each follow-up is generated from your previous answer.</p></div><a href="#trydemo" class="btn btn-secondary btn-sm">Try one question live <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+<div class="fpanel" id="fp3" role="tabpanel" aria-labelledby="ft3" hidden><div><b>Built from the JD and your resume</b><p>Every answer is scored on the same five dimensions, with a model answer beside yours.</p></div><a href="#pillar-prove" class="btn btn-secondary btn-sm">About InterviewPrep <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+<div class="fpanel" id="fp4" role="tabpanel" aria-labelledby="ft4" hidden><div><b>Evidence, not a verdict</b><p>Per-dimension scores, evaluator notes, the full transcript and a badge with a public verification link.</p></div><a href="sample-report.html" class="btn btn-secondary btn-sm">Open the sample report <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+</div>
+</div>
+</section>
+
+<!-- 5 · LIVE DEMO + SAMPLE REPORT -->
+<section id="demo" class="sec-proof" aria-labelledby="demo-h">
+<div class="container">
+<h2 id="demo-h" class="sr-only">Try the demo and inspect a sample report</h2>
+<div class="proof2">
+
+<div class="prf prf-demo">
+<div class="prf-copy">
+<h3>Try a live scenario. <span>See how it works.</span></h3>
+<p>Answer one real question from the scenario pool and get scored by the same engine.</p>
+<a href="#trydemo" class="btn btn-primary">Try the Demo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+<span class="prf-note">Live · no signup · about 2 minutes</span>
+</div>
+<div class="prf-shot" aria-label="Scenario loaded in the live demo below">
+<div class="pps-rail" aria-hidden="true"><svg><use href="#i-shield"/></svg><svg><use href="#i-grid"/></svg><svg><use href="#i-doc"/></svg><svg><use href="#i-chart"/></svg></div>
+<div class="pps-main">
+<div class="pps-h"><b id="pScenTitle">Cloud Security</b><span class="pps-chip" id="pScenMitre">MITRE T1078</span><span class="pps-t"><svg aria-hidden="true"><use href="#i-clock"/></svg>~2 min</span></div>
+<p class="pps-q" id="pScenQ">What is your first containment step, and why does sequence matter here?</p>
+<div class="pps-diag" id="pScenDiagram" aria-hidden="true"></div>
+</div>
+</div>
+</div>
+
+<div class="prf prf-report">
+<div class="prf-copy">
+<h3>View a sample report.</h3>
+<p>The exact format every session produces — shown with a fictional candidate.</p>
+<a href="sample-report.html" class="btn btn-primary">Open Sample Report <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+<span class="prf-note">Sample data · fictional candidate</span>
+</div>
+<a class="rep-card" href="sample-report.html" aria-label="Sample report preview: overall 78 out of 100, recommended for next round. Open the full sample report.">
+<span class="rc-h"><b>Assessment report</b><em>Sample</em></span>
+<span class="rc-who">Priya Ramanathan (sample) · Cloud Security · Intermediate</span>
+<span class="rc-body">
+<span class="ring"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="22"/><circle class="v" cx="30" cy="30" r="22" stroke-dasharray="107.8 138.2"/></svg><b>78</b><small>/100</small></span>
+<span class="rc-dims">
+<span><em>Threat Identification</em><i style="--w:82%"></i><b>8.2</b></span>
+<span><em>Containment &amp; Response</em><i style="--w:78%"></i><b>7.8</b></span>
+<span><em>Architecture &amp; Blast Radius</em><i style="--w:75%"></i><b>7.5</b></span>
+<span><em>Communication Quality</em><i style="--w:72%"></i><b>7.2</b></span>
+<span><em>Framework Application</em><i style="--w:80%"></i><b>8.0</b></span>
+</span>
+</span>
+<span class="rc-foot"><span class="rc-ok">✓ Recommended for next round</span><span>Top 23%</span><span>Silver badge</span><span>27 min</span></span>
+</a>
+</div>
+
+</div>
+
+<div id="trydemo" class="dlabel"><span class="dlabel-i" aria-hidden="true"><svg><use href="#i-play"/></svg></span><span class="dlabel-t">Live demo</span><span class="dlabel-d">Type or speak your reasoning — scored against the published rubric</span></div>
+
+<div class="dw">
+<div class="dwh">
+<div class="dwht" id="dScenTitle">Live Demo · Cloud Security</div>
+<div class="dwm">
+<span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>~2 min</span>
+<span id="dScenMitre"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 3l-9 18-3-9-9-3 21-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>MITRE T1078</span>
+</div>
+</div>
+<div class="dwb">
+<div class="dscn">
+<div class="dscn-h">
+<span class="drt" id="dScenRole">☁ Cloud Security</span>
+<span class="ddif" id="dScenDifficulty">Intermediate · Architecture #7</span>
+</div>
+<div class="dab">
+<div class="dat">Architecture Diagram</div>
+<div id="dScenDiagram"></div>
+</div>
+<div class="dctx" id="dScenContext">
+<strong>Context:</strong> Loading scenario…
+</div>
+</div>
+<div class="dint">
+<div id="dStage1">
+<div class="dqh">Adaptive Question · Q1 of 5</div>
+<div class="dq" id="dScenQuestion">Loading question…</div>
+<div class="daa">
+
+<div class="dvoice-bar">
+<button type="button" class="dvoice" id="dVoiceBtn" aria-pressed="false" aria-label="Toggle voice input">
+<span class="dvoice-pulse"></span>
+<svg class="dvoice-ic-off" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="dvoice-ic-on" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>
+<span id="dVoiceLabel">Voice answer</span>
+</button>
+
+</div>
+
+<label for="dAns" class="sr-only">Your answer</label>
+<textarea id="dAns" class="dta" placeholder="Type your reasoning here or tap the microphone to dictate. Explain what you'd do first and why." oncopy="return false" oncut="return false" maxlength="5000"></textarea>
+<div class="dvoice-status" id="dVoiceStatus" aria-live="polite"></div>
+<div class="derr" id="dErr" role="alert"></div>
+
+<div class="dctr">
+<span class="dhint"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>In the real product, AI adapts Q2–Q5 based on your answer.</span>
+<button type="button" class="btn btn-primary btn-sm" id="dSubmit" onclick="submitDemo()">Submit for scoring <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+</div>
+</div>
+<div id="dLoad" class="dload" aria-live="polite"><div class="dspin" aria-hidden="true"></div><div>Evaluating your reasoning against the rubric...</div></div>
+<div id="dRes" class="dres" aria-live="polite">
+<div class="dres-h"><span class="dres-l">✓ Scored against published rubric</span><span class="dres-s" id="dScore">7.5 / 10</span></div>
+<div class="rdim"><span class="rdim-l">Threat Identification</span><div class="rdim-b"><div class="rdim-f" id="dTI"></div></div><span class="rdim-s" id="dTIS">—</span></div>
+<div class="rdim"><span class="rdim-l">Containment &amp; Response</span><div class="rdim-b"><div class="rdim-f" id="dCR"></div></div><span class="rdim-s" id="dCRS">—</span></div>
+<div class="rdim"><span class="rdim-l">Architecture &amp; Blast Radius</span><div class="rdim-b"><div class="rdim-f" id="dAB"></div></div><span class="rdim-s" id="dABS">—</span></div>
+<div class="rdim"><span class="rdim-l">Communication Quality</span><div class="rdim-b"><div class="rdim-f" id="dCQ"></div></div><span class="rdim-s" id="dCQS">—</span></div>
+<div class="rdim"><span class="rdim-l">Framework Application</span><div class="rdim-b"><div class="rdim-f" id="dFA"></div></div><span class="rdim-s" id="dFAS">—</span></div>
+<div class="rma"><strong>Model answer</strong><span id="dScenModel">Loading…</span></div>
+<div class="rcta">
+<button type="button" class="btn btn-secondary btn-sm" onclick="resetDemo()">Try again</button>
+<a href="https://threatready.io/app/auth?mode=signup" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get the full 5-question version →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="dfoot">Demo simulates one scored question — the full product runs 5 adaptive questions.</p>
+</div>
+</section>
+
+<!-- 6 · ASSESSMENT TRUST -->
+<section id="scoring" class="sec-trust" aria-labelledby="scoring-h">
+<div class="container">
+<div id="validate" class="anchor-only" aria-hidden="true"></div>
+<div class="trust2">
+<div class="tr-intro">
+<span class="eyebrow">Assessment trust</span>
+<h2 id="scoring-h">Every score is <span class="grad">explainable.</span></h2>
+<div class="tr-pipe" role="img" aria-label="Scoring pipeline: your answer goes to an Evaluator, then a Challenger, then a Reconciler, which outputs a score with a confidence flag">
+<span class="tp-n">Answer</span><i aria-hidden="true"></i>
+<span class="tp-n p-think">Evaluator</span><i aria-hidden="true"></i>
+<span class="tp-n p-prove">Challenger</span><i aria-hidden="true"></i>
+<span class="tp-n p-do">Reconciler</span><i aria-hidden="true"></i>
+<span class="tp-n tp-out">Score + confidence flag</span>
+</div>
+<p class="tr-note">AI scoring is consistent, not infallible — a confidence flag marks uncertainty. Data use is set out in the <a href="privacy.html">privacy policy</a>.</p>
+</div>
+<ul class="tr-grid">
+<li><span class="tr-ic"><svg aria-hidden="true"><use href="#i-flow"/></svg></span><b>Scoring methodology</b><span>Three AI passes; disagreement is flagged, not hidden.</span><a href="transparent-scoring.html">How scoring works <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+<li><span class="tr-ic"><svg aria-hidden="true"><use href="#i-rubric"/></svg></span><b>Published rubric</b><span>Five dimensions, five written score bands each.</span><a href="rubric.html">Read the rubric <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+<li><span class="tr-ic"><svg aria-hidden="true"><use href="#i-lock"/></svg></span><b>Integrity controls</b><span>Paste disabled, forward-only, a new architecture on every retake.</span><a href="security.html">Security page <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+<li><span class="tr-ic"><svg aria-hidden="true"><use href="#i-scale"/></svg></span><b>Dispute policy</b><span>Challenge within 14 days; reviewed by an engineer within 7 business days.</span><a href="rubric.html#challenge">How to challenge <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- 7 · ROLE TRACKS -->
+<section id="roles" class="sec-roles" aria-labelledby="roles-h">
+<div class="container">
+<div class="sec-head">
+<div><h2 id="roles-h">Explore 15 security roles.</h2><p class="sub">Choose your track and start building your expertise.</p></div>
+<button type="button" class="btn btn-secondary btn-sm" id="rolesToggle" aria-expanded="false" aria-controls="roleGrid">View all roles <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+</div>
+<div class="roles" id="roleGrid" aria-label="Security role tracks">
+<button type="button" class="role" style="--c:#a78bfa" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></span><span class="role-n">SOC Analyst</span></button>
+<button type="button" class="role" style="--c:#60a5fa" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span class="role-n">Cloud Security</span></button>
+<button type="button" class="role" style="--c:#4ade80" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 7v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V7l-8-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 10l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="role-n">Application Security</span></button>
+<button type="button" class="role" style="--c:#2dd4bf" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="role-n">Threat Hunter</span></button>
+<button type="button" class="role" style="--c:#22d3ee" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="role-n">Security Architect</span></button>
+<button type="button" class="role" style="--c:#f472b6" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="role-n">DFIR &amp; Incident Response</span></button>
+<button type="button" class="role" style="--c:#facc15" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="role-n">GRC &amp; Compliance</span></button>
+<button type="button" class="role" style="--c:#ef4444" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 17.5L3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="role-n">Red Team</span></button>
+<button type="button" class="role" style="--c:#f87171" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span class="role-n">DevSecOps</span></button>
+<button type="button" class="role" style="--c:#8b5cf6" aria-pressed="false"><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="10" r="1.5" fill="currentColor"/><circle cx="15" cy="10" r="1.5" fill="currentColor"/><path d="M8 15c1 1.5 2.5 2 4 2s3-.5 4-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="role-n">AI/LLM Security</span></button>
+<button type="button" class="role" style="--c:#c084fc" aria-pressed="false" data-more><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.5 3 3.8 6.1 3.8 9s-1.3 6-3.8 9c-2.5-3-3.8-6.1-3.8-9s1.3-6 3.8-9z" stroke="currentColor" stroke-width="2"/></svg></span><span class="role-n">Network Security</span></button>
+<button type="button" class="role" style="--c:#fb923c" aria-pressed="false" data-more><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span class="role-n">Product Security</span></button>
+<button type="button" class="role" style="--c:#38bdf8" aria-pressed="false" data-more><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M22 11l-3-3m0 0l-3 3m3-3v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="role-n">IAM Security</span></button>
+<button type="button" class="role" style="--c:#34d399" aria-pressed="false" data-more><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3" stroke="currentColor" stroke-width="2"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" stroke="currentColor" stroke-width="2"/></svg></span><span class="role-n">Data Security</span></button>
+<button type="button" class="role" style="--c:#0ea5e9" aria-pressed="false" data-more><span class="role-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 7v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V7l-8-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></span><span class="role-n">Blue Team</span></button>
+</div>
+<div class="role-detail" id="roleDetail" aria-live="polite">
+<span class="rd-ic" id="rdIc" aria-hidden="true"></span>
+<div class="rd-t"><b id="rdName">Select a role</b><span>Beginner → Intermediate → Advanced → Expert · free plan covers Beginner</span></div>
+<a href="https://threatready.io/app/auth?mode=signup" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="rdCta">Start free <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+<p class="rnote">You pick the track inside the app after signing up. Lab Simulations are rolling out track by track.</p>
+</div>
+</section>
+
+<!-- 8 · FOR ORGANISATIONS -->
+<section id="organisations" class="sec-orgs" aria-labelledby="org-h">
+<div class="container">
+<div id="contact" class="anchor-only" aria-hidden="true"></div>
+<div class="sec-head">
+<div><h2 id="org-h">Built for individuals and organisations.</h2><p class="sub">Different goals. One platform.</p></div>
+</div>
+<div class="orgs4">
+<div class="org p-think">
+<span class="org-ic"><svg aria-hidden="true"><use href="#i-users"/></svg></span>
+<h3>Hiring Teams</h3>
+<p>Assess candidates with structured, reviewable reports.</p>
+<a href="pilot.html" class="org-cta">Request a Pilot <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+<div class="org p-do">
+<span class="org-ic"><svg aria-hidden="true"><use href="#i-target"/></svg></span>
+<h3>Engineering Teams</h3>
+<p>Build practical, role-relevant skills across your team.</p>
+<a href="#cfForm" class="org-cta" data-interest="training">Discuss Training <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+<div class="org p-prove">
+<span class="org-ic"><svg aria-hidden="true"><use href="#i-cap"/></svg></span>
+<h3>Colleges &amp; Bootcamps</h3>
+<p>Give final-year cohorts real task experience before placement.</p>
+<a href="#cfForm" class="org-cta" data-interest="college">Academic Pilot <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+<div class="org p-svc">
+<span class="org-ic"><svg aria-hidden="true"><use href="#i-server"/></svg></span>
+<h3>Aerovant Security Services</h3>
+<p>Cloud, infrastructure and penetration testing — by the team that writes our scenarios.</p>
+<a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer" class="org-cta">Explore Services <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+</div>
+
+<div class="cform" id="cfForm">
+<div class="cf-side">
+<h3>Talk to the team</h3>
+<p class="cfs">Tell us what you're trying to do. We reply within 1 business day.</p>
+<ul class="cf-tips">
+<li><svg aria-hidden="true"><use href="#i-users"/></svg>Team or cohort size</li>
+<li><svg aria-hidden="true"><use href="#i-clock"/></svg>Timeline</li>
+<li><svg aria-hidden="true"><use href="#i-target"/></svg>Roles you hire or train for</li>
+</ul>
+<p class="cf-fallback">Prefer email?<br><a href="mailto:humanresource@aerovanttech.com">humanresource@aerovanttech.com</a><br><a href="mailto:admin@aerovanttech.com">admin@aerovanttech.com</a></p>
+</div>
+<form class="cf" id="contactForm" action="https://formspree.io/f/YOUR_CONTACT_FORM_ID" method="POST" novalidate>
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+<input type="hidden" name="_subject" value="ThreatReady — organisation enquiry">
+<label><span class="lt">Full name <span class="req" aria-hidden="true">*</span></span><input type="text" name="name" id="cfName" required autocomplete="name" maxlength="120" aria-describedby="cfNameErr"><span class="err" id="cfNameErr">Please enter your name.</span></label>
+<label><span class="lt">Work email <span class="req" aria-hidden="true">*</span></span><input type="email" name="email" id="cfEmail" required autocomplete="email" maxlength="254" placeholder="you@company.com" aria-describedby="cfEmailErr"><span class="err" id="cfEmailErr">Please enter a valid email address.</span></label>
+<label><span class="lt">Organisation <span class="req" aria-hidden="true">*</span></span><input type="text" name="organisation" id="cfOrg" required autocomplete="organization" maxlength="160" aria-describedby="cfOrgErr"><span class="err" id="cfOrgErr">Please enter your organisation.</span></label>
+<label><span class="lt">I'm interested in <span class="req" aria-hidden="true">*</span></span><select name="interest" id="cfInterest" required aria-describedby="cfInterestErr"><option value="">Select one…</option><option value="hiring">Hiring — candidate assessment</option><option value="training">Training — engineering team</option><option value="college">College or bootcamp cohort</option><option value="services">Aerovant security services</option></select><span class="err" id="cfInterestErr">Please choose an option.</span></label>
+<label class="full"><span class="lt">Message</span><span class="hint">Optional · up to 1,000 characters</span><textarea name="message" id="cfMsg" maxlength="1000" rows="3"></textarea></label>
+<button type="submit" class="btn btn-primary full" id="cfSubmit">Send enquiry</button>
+<div class="cf-status full" id="cfStatus" role="status" aria-live="polite"></div>
+</form>
+</div>
+</div>
+</section>
+
+<!-- 9 · PRICING -->
+<section id="pricing" class="psec" aria-labelledby="pricing-h">
+<div class="container">
+<div class="tc tight">
+<span class="eyebrow">Pricing</span>
+<h2 id="pricing-h">Start free. <span class="grad">Scale when you're ready.</span></h2>
+<p class="sub">No credit card required for the free plan.</p>
+</div>
+<div class="pgr four pplan a">
+<div class="pc">
+<div class="pn">Free Trial</div>
+<div class="pp">₹0</div>
+<div class="pusd">Free, always</div>
+<div class="ppd">2 scenarios total · Beginner only</div>
+<div class="pcta"><a href="https://threatready.io/app/auth?mode=signup&amp;plan=free" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Start Free</a></div>
+<ul class="pf">
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Beginner level across any role</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Personal skill dashboard</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Sample model answers</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Account stays active after trial</li>
+</ul>
+</div>
+<div class="pc feat">
+<span class="ppop">Most Popular</span>
+<div class="pn">Single Role</div>
+<div class="pp">₹399</div>
+<div class="pusd">≈ $5 USD / month</div>
+<div class="ppd">per month · billed monthly</div>
+<div class="pcta"><a href="https://threatready.io/app/auth?plan=single" target="_blank" rel="noopener noreferrer" class="btn btn-cta">Choose Plan</a></div>
+<ul class="pf">
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>1 role, all 4 difficulty levels</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Unlimited scenario attempts</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Shareable skill badges</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Radar chart + score tracking</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Priority access to new scenarios</li>
+</ul>
+</div>
+<div class="pc">
+<div class="pn">Multi-Role</div>
+<div class="pp">from ₹655</div>
+<div class="pusd">≈ $8 USD / month (2 roles)</div>
+<div class="ppd">2 roles 18% off · 3+ roles 30% off</div>
+<div class="pcta"><a href="https://threatready.io/app/auth?plan=multi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Choose Plan</a></div>
+<ul class="pf">
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>2 or more roles unlocked</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>All difficulty levels</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Cross-role skill radar</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Interview Mode add-on (+₹199/mo)</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Resume skill parsing</li>
+</ul>
+</div>
+<div class="pc team">
+<div class="pn">Teams &amp; hiring</div>
+<div class="pp">Contact for pricing</div>
+<div class="pusd">Scoped to seats, candidates or cohort</div>
+<div class="ppd">Hiring pilots · team training · college cohorts</div>
+<div class="pcta"><a href="#cfForm" class="btn btn-secondary" data-interest="hiring">Contact us</a></div>
+<ul class="pf">
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Candidate assessment reports</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Role tracks for engineering teams</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Lab Simulations for student cohorts</li>
+<li><svg aria-hidden="true"><use href="#i-check"/></svg>Free pilot for hiring teams</li>
+</ul>
+</div>
+</div>
+<p class="pn-note">All prices in INR. GST extra where applicable. USD approximations are indicative only. Cancel anytime. Pause option available on all paid plans. Annual billing at 2 months free.</p>
+</div>
+</section>
+
+<!-- 10 · FAQ -->
+<section id="faq" class="sec-faq" aria-labelledby="faq-h">
+<div class="container faq-wrap">
+<div class="faq-side">
+<span class="eyebrow">FAQ</span>
+<h2 id="faq-h">Questions we hear</h2>
+<p class="sub">Short answers here — the detail lives on the <a href="rubric.html">rubric</a>, <a href="security.html">security</a> and <a href="privacy.html">privacy</a> pages.</p>
+<a href="attack-of-the-week.html" class="latest">
+<span class="lk">Attack of the Week</span>
+<b>Real attack chains, dissected weekly</b>
+<span>S3 exfiltration, Kubernetes RBAC bypass, CI/CD injection and more <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+</a>
+</div>
+<div class="faq" id="faqList">
+<div class="fq"><h3><button class="fq-b" type="button" aria-expanded="false" aria-controls="faqA1" id="faqQ1">How do the Attack Reasoning Lab, Lab Simulations and InterviewPrep differ?<span class="fx" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button></h3><div class="fq-p" id="faqA1" role="region" aria-labelledby="faqQ1">They are three stages of one journey. The Lab tests how you reason through an attack on a real architecture. Lab Simulations are role-based tasks that mirror daily security work. InterviewPrep builds an interview from a job description and your resume. All three use the same five-dimension rubric.</div></div>
+<div class="fq"><h3><button class="fq-b" type="button" aria-expanded="false" aria-controls="faqA2" id="faqQ2">Do I need prior cybersecurity experience?<span class="fx" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button></h3><div class="fq-p" id="faqA2" role="region" aria-labelledby="faqQ2">No. Every role track starts at Beginner and the free plan covers Beginner on any role. Lab Simulations are designed for freshers and final-year students.</div></div>
+<div class="fq"><h3><button class="fq-b" type="button" aria-expanded="false" aria-controls="faqA3" id="faqQ3">How are scores generated and how should I read them?<span class="fx" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button></h3><div class="fq-p" id="faqA3" role="region" aria-labelledby="faqQ3">Each answer goes through three AI passes — Evaluator, Challenger, Reconciler — against the <a href="rubric.html">published rubric</a>. When passes disagree significantly, the score carries a confidence flag. Read a score as evidence to review alongside the transcript, not a verdict.</div></div>
+<div class="fq"><h3><button class="fq-b" type="button" aria-expanded="false" aria-controls="faqA4" id="faqQ4">What happens if I disagree with a score?<span class="fx" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button></h3><div class="fq-p" id="faqA4" role="region" aria-labelledby="faqQ4">Challenge it within 14 days by emailing <a href="mailto:admin@aerovanttech.com">admin@aerovanttech.com</a> with your session ID. A security engineer reviews the transcript and rubric application within 7 business days and replies with a confirmed or revised score. <a href="rubric.html#challenge">Full process</a>.</div></div>
+<div class="fq"><h3><button class="fq-b" type="button" aria-expanded="false" aria-controls="faqA5" id="faqQ5">How is my resume and assessment data handled?<span class="fx" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button></h3><div class="fq-p" id="faqA5" role="region" aria-labelledby="faqQ5">Production data is stored in India (AWS Mumbai), encrypted in transit and at rest. Assessment text is sent to Anthropic's Claude API for scoring, which does not train on it. Raw scoring outputs are kept 90 days for audit. GDPR and India DPDPA 2023 rights are supported. See the <a href="privacy.html">privacy policy</a> and <a href="security.html">security page</a>.</div></div>
+<div class="fq"><h3><button class="fq-b" type="button" aria-expanded="false" aria-controls="faqA6" id="faqQ6">How can an organisation run a pilot or discuss team requirements?<span class="fx" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span></button></h3><div class="fq-p" id="faqA6" role="region" aria-labelledby="faqQ6">Hiring teams can <a href="pilot.html">request a pilot</a> with free candidate assessments. Engineering teams, colleges and services enquiries go through the <a href="#cfForm">contact form</a> or <a href="mailto:humanresource@aerovanttech.com">humanresource@aerovanttech.com</a>.</div></div>
+</div>
+</div>
+</section>
+
+<!-- 11 · CLOSING STRIP -->
+<section class="sec-close" aria-label="Platform at a glance">
+<div class="container">
+<div class="close-bar">
+<ul class="close-stats">
+<li><span class="cs-ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span><b>MITRE ATT&amp;CK</b>Mapped scenarios</span></li>
+<li><span class="cs-ic"><svg aria-hidden="true"><use href="#i-users"/></svg></span><span><b>15</b>Security roles</span></li>
+<li><span class="cs-ic"><svg aria-hidden="true"><use href="#i-brain"/></svg></span><span><b>6</b>Reasoning modes</span></li>
+<li><span class="cs-ic"><svg aria-hidden="true"><use href="#i-flow"/></svg></span><span><b>3-pass</b>AI evaluation</span></li>
+<li><span class="cs-ic"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><span><b>Real-world</b>Scenarios</span></li>
+</ul>
+<a href="https://threatready.io/app/auth?mode=signup" target="_blank" rel="noopener noreferrer" class="btn btn-cta">Start Your Journey <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+</div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="ft">
+<div class="container">
+<div class="fgr">
+<div class="fbr">
+<a href="#top" class="logo" aria-label="ThreatReady — back to top">
+<span class="logo-i" role="img" aria-label="ThreatReady logo"></span>
+<span class="logo-t">ThreatReady</span>
+</a>
+<div class="aprod-col"><span class="aprod-col-l">A PRODUCT OF</span><a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer" class="aprod-col-link">AEROVANT TECHNOLOGIES<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a></div>
+<div class="fbr-contact">
+<span class="fbr-c-l">Contact</span>
+<a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=humanresource@aerovanttech.com&amp;su=ThreatReady%20%E2%80%94%20enquiry" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
+humanresource@aerovanttech.com
+</a>
+<a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=admin@aerovanttech.com&amp;su=ThreatReady%20%E2%80%94%20support" target="_blank" rel="noopener noreferrer">
+<svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
+admin@aerovanttech.com
+</a>
+</div>
+<div class="fbr-social">
+<a href="https://x.com/aerovant_tech" target="_blank" rel="noopener noreferrer" aria-label="Aerovant on X" title="Follow on X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+<a href="https://www.linkedin.com/in/aerovant-technologies/" target="_blank" rel="noopener noreferrer" aria-label="Aerovant on LinkedIn" title="Connect on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+<a href="https://www.instagram.com/aerovant_technologies?igsh=MTZ0ZXVhMXdsbmJlbw==" target="_blank" rel="noopener noreferrer" aria-label="Aerovant on Instagram" title="Follow on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+<a href="https://www.youtube.com/@aerovanttechnologies" target="_blank" rel="noopener noreferrer" aria-label="Aerovant on YouTube" title="Subscribe on YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+<a href="https://www.facebook.com/people/Aerovant-Technologies/61587139213075/" target="_blank" rel="noopener noreferrer" aria-label="Aerovant on Facebook" title="Follow on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+</div>
+<p class="founder"><strong>Giri Eeshwar</strong>, Founder · 10+ years Cybersecurity Architect. "We don't test memorization. We test how you think under real attack pressure."</p>
+</div>
+<div class="fcol">
+<h5>Product</h5>
+<ul>
+<li><a href="#pillar-think"><span class="pill p-think">THINK</span>Attack Reasoning Lab</a></li>
+<li><a href="#pillar-do"><span class="pill p-do">DO</span>Lab Simulations</a></li>
+<li><a href="#pillar-prove"><span class="pill p-prove">PROVE</span>InterviewPrep</a></li>
+<li><a href="#trydemo">Try the demo</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="https://threatready.io/app/" target="_blank" rel="noopener noreferrer">Sign in</a></li>
+</ul>
+</div>
+<div class="fcol">
+<h5>Resources</h5>
+<ul>
+<li><a href="how-it-works.html">How it works</a></li>
+<li><a href="transparent-scoring.html">Transparent scoring</a></li>
+<li><a href="rubric.html">Scoring rubric</a></li>
+<li><a href="sample-report.html">Sample report</a></li>
+<li><a href="attack-of-the-week.html">Attack of the Week</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
+<div class="fcol">
+<h5>Organisations &amp; legal</h5>
+<ul>
+<li><a href="pilot.html">For hiring teams</a></li>
+<li><a href="#cfForm">Contact</a></li>
+<li><a href="privacy.html">Privacy policy</a></li>
+<li><a href="terms.html">Terms of service</a></li>
+<li><a href="security.html">Security</a></li>
+<li><a href="dpa.html">Data processing agreement</a></li>
+</ul>
+</div>
+</div>
+<div class="fbot">
+<div class="fbt-center">&copy; 2026 <a href="https://aerovanttech.com/" target="_blank" rel="noopener noreferrer" class="fbt-link"><strong>Aerovant Technologies Pvt. Ltd.</strong></a> All rights reserved.</div>
+</div>
+</div>
+</footer>
+
+<div class="cb" id="cb" role="dialog" aria-label="Cookie preferences">
+<h5>🍪 Cookie preferences</h5>
+<p>We use essential cookies for authentication and session management. Analytics cookies help us improve the product. You control what's active.</p>
+<div class="cba">
+<button class="btn btn-secondary btn-sm" onclick="cookiePrefs('essential')">Essential only</button>
+<button class="btn btn-primary btn-sm" onclick="cookiePrefs('all')">Accept all</button>
+</div>
+</div>
+
+<script>
+/* v5 — reusable tablist: click, arrow keys, Home/End; optional auto-rotate that pauses on hover/focus and respects reduced motion */
+function trTabs(tabs, panels, opts){
+  opts = opts || {};
+  if (!tabs.length) return null;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let idx = 0, timer = null, paused = false;
+  function show(i, focus){
+    idx = (i + tabs.length) % tabs.length;
+    tabs.forEach((t, n) => { const on = n === idx; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; t.classList.toggle('a', on); });
+    panels.forEach((p, n) => { const on = n === idx; p.classList.toggle('a', on); p.hidden = !on; });
+    if (focus) tabs[idx].focus();
+  }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  function start(){ stop(); if (!opts.rotate || reduce.matches || paused || document.hidden) return; timer = setInterval(() => show(idx + 1), opts.rotate); }
+  tabs.forEach((t, n) => {
+    t.addEventListener('click', () => { show(n); paused = true; stop(); });
+    t.addEventListener('keydown', e => {
+      const k = e.key; let d = 0;
+      if (k === 'ArrowRight' || k === 'ArrowDown') d = 1; else if (k === 'ArrowLeft' || k === 'ArrowUp') d = -1;
+      if (d) { e.preventDefault(); show(idx + d, true); paused = true; stop(); }
+      if (k === 'Home') { e.preventDefault(); show(0, true); } if (k === 'End') { e.preventDefault(); show(tabs.length - 1, true); }
+    });
+  });
+  if (opts.rotate && opts.root) {
+    opts.root.addEventListener('mouseenter', stop); opts.root.addEventListener('mouseleave', start);
+    opts.root.addEventListener('focusin', stop); opts.root.addEventListener('focusout', () => { if (!opts.root.contains(document.activeElement)) start(); });
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+    reduce.addEventListener && reduce.addEventListener('change', start);
+  }
+  show(0); start();
+  return { show };
+}
+
+/* hero dashboard module tabs (auto-rotate 6s until the visitor interacts) */
+(function(){
+  const root = document.querySelector('.laptop'); if (!root) return;
+  trTabs([...root.querySelectorAll('.db-mod')], [...root.querySelectorAll('.db-panel')], { rotate: 6000, root });
+})();
+
+/* hero: dashed connector wires from each floating panel to the laptop screen (recomputed on resize) */
+(function(){
+  const hv = document.querySelector('.hero-visual'), svg = hv && hv.querySelector('.hv-wires'), scr = hv && hv.querySelector('.lt-screen');
+  if (!svg || !scr) return;
+  function draw(){
+    const box = hv.getBoundingClientRect(), s = scr.getBoundingClientRect();
+    svg.setAttribute('viewBox', '0 0 ' + box.width + ' ' + box.height);
+    let d = '';
+    const P = (x, y) => x.toFixed(1) + ' ' + y.toFixed(1);
+    hv.querySelectorAll('.fp[data-wire]').forEach(p => {
+      const r = p.getBoundingClientRect(); if (!r.width || getComputedStyle(p).position !== 'absolute') return;
+      if (r.bottom <= s.top + 4) {            // panel sits above the screen: drop a vertical connector
+        const x = r.left + r.width * .7 - box.left, y1 = r.bottom - box.top, y2 = s.top - box.top + 2, x2 = x + 40;
+        d += 'M' + P(x, y1) + ' C ' + P(x, y1 + 30) + ', ' + P(x2, y2 - 30) + ', ' + P(x2, y2) + ' ';
+        return;
+      }
+      const left = p.dataset.wire === 'l';
+      const x1 = (left ? r.left : r.left) - box.left, xs = (left ? s.left : s.right) - box.left;
+      if (left || r.left - s.right < 10) return;  // overlapping panels need no connector
+      const y = r.top + r.height / 2 - box.top;
+      const y2 = Math.min(Math.max(y, s.top - box.top + 24), s.bottom - box.top - 24);
+      const mx = (x1 + xs) / 2;
+      d += 'M' + P(x1, y) + ' C ' + P(mx, y) + ', ' + P(mx, y2) + ', ' + P(xs, y2) + ' ';
+    });
+    svg.innerHTML = d ? '<path d="' + d + '"/>' : '';
+  }
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  window.addEventListener('load', draw); draw();
+})();
+
+/* workflow stepper: click/keyboard reveals the step detail */
+trTabs([...document.querySelectorAll('.flow .fstep')], [...document.querySelectorAll('.flow-detail .fpanel')]);
+
+/* role tracks: selection updates the detail bar; "View all roles" reveals the rest */
+(function(){
+  const grid = document.getElementById('roleGrid'); if (!grid) return;
+  const roles = [...grid.querySelectorAll('.role')];
+  const name = document.getElementById('rdName'), ic = document.getElementById('rdIc'), detail = document.getElementById('roleDetail');
+  const toggle = document.getElementById('rolesToggle');
+  function select(btn){
+    roles.forEach(r => r.setAttribute('aria-pressed', r === btn ? 'true' : 'false'));
+    name.textContent = btn.querySelector('.role-n').textContent;
+    ic.innerHTML = btn.querySelector('.role-ic').innerHTML;
+    detail.style.setProperty('--c', btn.style.getPropertyValue('--c'));
+    detail.classList.add('a');
+  }
+  roles.forEach(r => r.addEventListener('click', () => select(r)));
+  if (toggle) toggle.addEventListener('click', () => {
+    const open = grid.classList.toggle('all');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.firstChild.textContent = open ? 'Show fewer roles ' : 'View all roles ';
+    if (open) { const first = grid.querySelector('.role[data-more]'); first && first.focus({ preventScroll: true }); }
+  });
+  select(roles[0]);
+})();
+
+/* v3 — FAQ accordion */
+(function(){
+  document.querySelectorAll('#faqList .fq-b').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      btn.closest('.fq').classList.toggle('open', !open);
+    });
+  });
+})();
+
+/* v3 — organisation CTAs preselect the interest; contact form validation + Formspree submission */
+(function(){
+  const form = document.getElementById('contactForm'); if (!form) return;
+  const sel = document.getElementById('cfInterest'), status = document.getElementById('cfStatus'), submit = document.getElementById('cfSubmit');
+  document.querySelectorAll('[data-interest]').forEach(a => a.addEventListener('click', () => {
+    const v = a.dataset.interest; if (sel && [...sel.options].some(o => o.value === v)) sel.value = v;
+    setTimeout(() => { const first = document.getElementById('cfName'); if (first) first.focus({ preventScroll: true }); }, 450);
+  }));
+  const unconfigured = /YOUR_[A-Z_]+_FORM_ID/.test(form.action);
+  if (unconfigured) {
+    status.className = 'cf-status info';
+    status.innerHTML = 'The enquiry form is not connected yet. Please email <a href="mailto:humanresource@aerovanttech.com">humanresource@aerovanttech.com</a> and we\'ll reply within 1 business day.';
+    submit.disabled = true; submit.textContent = 'Form not yet connected';
+  }
+  function setErr(id, bad){ const el = document.getElementById(id); if (!el) return; el.closest('label').classList.toggle('invalid', bad); }
+  function valid(){
+    let ok = true;
+    const name = document.getElementById('cfName'), email = document.getElementById('cfEmail'), org = document.getElementById('cfOrg');
+    const nameOk = name.value.trim().length >= 2; setErr('cfName', !nameOk); ok = ok && nameOk;
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim()); setErr('cfEmail', !emailOk); ok = ok && emailOk;
+    const orgOk = org.value.trim().length >= 2; setErr('cfOrg', !orgOk); ok = ok && orgOk;
+    const intOk = !!sel.value; setErr('cfInterest', !intOk); ok = ok && intOk;
+    return ok;
+  }
+  ['cfName','cfEmail','cfOrg','cfInterest'].forEach(id => { const el = document.getElementById(id); el && el.addEventListener('input', () => el.closest('label').classList.remove('invalid')); });
+  let busy = false;
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (busy || unconfigured) return;
+    if (form.querySelector('input[name="_gotcha"]').value) { status.className = 'cf-status ok'; status.textContent = 'Thanks — we\'ll be in touch.'; form.reset(); return; }
+    if (!valid()) { status.className = 'cf-status bad'; status.textContent = 'Please fix the highlighted fields.'; const bad = form.querySelector('.invalid input, .invalid select'); bad && bad.focus(); return; }
+    busy = true; submit.disabled = true; const label = submit.textContent; submit.textContent = 'Sending…'; status.className = 'cf-status'; status.textContent = '';
+    try {
+      const res = await fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+      if (res.ok) { status.className = 'cf-status ok'; status.textContent = 'Thanks — your enquiry is in. We reply within 1 business day.'; form.reset(); }
+      else { const d = await res.json().catch(() => ({})); status.className = 'cf-status bad'; status.innerHTML = (d.errors && d.errors.length ? d.errors.map(x => x.message).join(' ') + ' ' : 'Something went wrong. ') + 'Your details are still in the form — try again or email <a href="mailto:humanresource@aerovanttech.com">humanresource@aerovanttech.com</a>.'; }
+    } catch (err) {
+      status.className = 'cf-status bad'; status.innerHTML = 'Network error. Your details are still in the form — try again or email <a href="mailto:humanresource@aerovanttech.com">humanresource@aerovanttech.com</a>.';
+    } finally { busy = false; submit.disabled = false; submit.textContent = label; }
+  });
+})();
+</script>
+
+<script>
+// Theme toggle — light/dark, persists to localStorage
+const themeTog = document.getElementById('themeTog');
+if (themeTog) {
+  themeTog.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('tr-theme', next); } catch(e) {}
+  });
+}
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Mobile menu
+/* ROUND 37: Robust mobile menu */
+(function(){
+  const mtog = document.getElementById('mtog');
+  const mmenu = document.getElementById('mmenu');
+  if (!mtog || !mmenu) return;
+  const body = document.body;
+  let isOpen = false;
+
+  function open(){
+    if (isOpen) return;
+    isOpen = true;
+    mmenu.classList.add('open');
+    mtog.classList.add('open');
+    body.classList.add('mmenu-locked');
+    mtog.setAttribute('aria-expanded', 'true');
+    // Focus first menu item for keyboard users
+    const firstLink = mmenu.querySelector('a');
+    if (firstLink) setTimeout(() => firstLink.focus(), 100);
+  }
+  function close(){
+    if (!isOpen) return;
+    isOpen = false;
+    mmenu.classList.remove('open');
+    mtog.classList.remove('open');
+    body.classList.remove('mmenu-locked');
+    mtog.setAttribute('aria-expanded', 'false');
+  }
+  function toggle(e){
+    if (e) e.preventDefault();
+    isOpen ? close() : open();
+  }
+
+  mtog.addEventListener('click', toggle);
+
+  // Close on link click (same-page anchors and external)
+  mmenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => close());
+  });
+
+  // ESC key closes
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) { close(); mtog.focus(); }
+  });
+
+  // Click on the menu backdrop area (any space outside the inner panel) closes
+  mmenu.addEventListener('click', (e) => {
+    if (e.target === mmenu) close();
+  });
+
+  // Auto-close on resize to desktop, and reset state if zoom causes width to flip
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.innerWidth > 1024 && isOpen) close();
+    }, 100);
+  });
+
+  // Auto-close on visibilitychange (tab swap) so state stays clean
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && isOpen) close();
+  });
+})();
+
+// Reveal animation on scroll
+const revObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('v'); revObs.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rev').forEach(el => revObs.observe(el));
+// Reveal pillars/cards on scroll (v3)
+document.querySelectorAll('.pcard, .prf, .tr-grid li, .org, .pc').forEach(el => { el.classList.add('rev'); revObs.observe(el); });
+
+// ============================================================
+// Demo interactive — 3 rotating scenarios + voice input
+// ============================================================
+
+// Scenario pool — pick one at random on each page load
+const DEMO_SCENARIOS = [
+  {
+    title: 'Live Demo · Cloud Security',
+    role: '☁ Cloud Security',
+    difficulty: 'Intermediate · Architecture CS-7',
+    mitre: 'MITRE T1078',
+    context: '<strong>Context:</strong> Your SOC detected anomalous outbound traffic from a production Lambda function to an external IP. The Lambda has read-write access to an S3 bucket containing customer PII, and its IAM role also has permissions on Secrets Manager. Initial triage suggests a compromised dependency.',
+    question: 'What is your first containment step, and why does sequence matter here?',
+    modelAnswer: 'Disable the Lambda function immediately (remove its trigger or set concurrency to 0) — this stops active exfiltration without destroying forensic state. Only after that, scope down the IAM role (remove secrets:* and narrow s3:*). Sequence matters because investigation before containment lets the attacker keep reading PII. Then rotate credentials the role could have accessed, review CloudTrail for scope, and snapshot the Lambda for forensics.',
+    techTerms: ['disable','revoke','isolate','quarantine','concurrency','iam','role','lambda','cloudtrail','forensic','snapshot','rotate','credential','trigger','scope','least privilege','permission','secrets','s3'],
+    diagram: `<svg viewBox="0 0 360 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+<rect x="15" y="15" width="70" height="36" rx="6" fill="rgba(139,92,246,.15)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="50" y="38" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#7c3aed">Attacker</text>
+<rect x="135" y="15" width="80" height="36" rx="6" fill="#f0f1f4" stroke="#c4c7ce"/>
+<text x="175" y="38" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">Public API GW</text>
+<rect x="265" y="15" width="80" height="36" rx="6" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1.5"/>
+<text x="305" y="33" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">Lambda</text>
+<text x="305" y="45" text-anchor="middle" font-family="Inter" font-size="7" fill="#dc2626">compromised</text>
+<rect x="15" y="83" width="70" height="36" rx="6" fill="#f0f1f4" stroke="#c4c7ce"/>
+<text x="50" y="101" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">S3 (PII)</text>
+<text x="50" y="113" text-anchor="middle" font-family="Inter" font-size="7" fill="#5a5d66">customers/</text>
+<rect x="135" y="83" width="80" height="36" rx="6" fill="rgba(245,158,11,.15)" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="175" y="101" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">IAM Role</text>
+<text x="175" y="113" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">Overly permissive</text>
+<rect x="265" y="83" width="80" height="36" rx="6" fill="#f0f1f4" stroke="#c4c7ce"/>
+<text x="305" y="101" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">Secrets Mgr</text>
+<text x="305" y="113" text-anchor="middle" font-family="Inter" font-size="7" fill="#5a5d66">db-prod-creds</text>
+<rect x="135" y="151" width="80" height="28" rx="6" fill="rgba(139,92,246,.15)" stroke="#a78bfa"/>
+<text x="175" y="170" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#7c3aed">CloudTrail</text>
+<path d="M85 33 L135 33" stroke="#ef4444" stroke-width="1.5" fill="none"/>
+<path d="M215 33 L265 33" stroke="#ef4444" stroke-width="1.5" fill="none"/>
+<path d="M305 51 L305 83" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+<path d="M265 101 L215 101" stroke="#9ca0aa" stroke-width="1" fill="none"/>
+<path d="M135 101 L85 101" stroke="#9ca0aa" stroke-width="1" fill="none"/>
+</svg>`
+  },
+  {
+    title: 'Live Demo · Kubernetes Security',
+    role: '⎈ Kubernetes',
+    difficulty: 'Intermediate · Architecture K8S-12',
+    mitre: 'MITRE T1611',
+    context: '<strong>Context:</strong> A public-facing web pod in your production namespace is flagged by runtime security for attempting to read files outside its container. The pod runs with a ServiceAccount that mounts a token, and the cluster RBAC lets that SA list secrets across all namespaces. etcd backups run nightly to an S3 bucket accessible from the pod.',
+    question: 'You have 60 seconds before the attacker likely pivots. What do you do first, and why not block the namespace entirely?',
+    modelAnswer: 'Evict the pod and scale its deployment to zero — this kills the running container and its mounted token without deleting the pod spec (preserving evidence). Do NOT block the namespace entirely: shared infra (CoreDNS, ingress controllers) run there and the blast radius exceeds the threat. Then revoke the ServiceAccount token (rotate the secret), audit kube-audit logs for list/get on secrets from that SA, and quarantine the container image. Namespace-wide blocks break more than they fix — scope matters.',
+    techTerms: ['evict','scale','replica','pod','serviceaccount','token','rbac','role','rolebinding','secret','namespace','kube-audit','audit','rotate','quarantine','image','network policy','netpol','container','runtime'],
+    diagram: `<svg viewBox="0 0 360 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+<rect x="15" y="15" width="70" height="36" rx="6" fill="rgba(139,92,246,.15)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="50" y="38" text-anchor="middle" font-family="Inter" font-size="10" font-weight="600" fill="#7c3aed">Attacker</text>
+<rect x="135" y="15" width="80" height="36" rx="6" fill="#f0f1f4" stroke="#c4c7ce"/>
+<text x="175" y="33" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">Ingress</text>
+<text x="175" y="45" text-anchor="middle" font-family="Inter" font-size="7" fill="#5a5d66">public</text>
+<rect x="265" y="15" width="80" height="36" rx="6" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1.5"/>
+<text x="305" y="33" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">Web Pod</text>
+<text x="305" y="45" text-anchor="middle" font-family="Inter" font-size="7" fill="#dc2626">compromised</text>
+<rect x="15" y="83" width="70" height="36" rx="6" fill="rgba(245,158,11,.15)" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="50" y="101" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">SA Token</text>
+<text x="50" y="113" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">mounted</text>
+<rect x="135" y="83" width="80" height="36" rx="6" fill="rgba(245,158,11,.15)" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="175" y="101" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">RBAC</text>
+<text x="175" y="113" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">list secrets *</text>
+<rect x="265" y="83" width="80" height="36" rx="6" fill="#f0f1f4" stroke="#c4c7ce"/>
+<text x="305" y="101" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">etcd</text>
+<text x="305" y="113" text-anchor="middle" font-family="Inter" font-size="7" fill="#5a5d66">cluster secrets</text>
+<rect x="135" y="151" width="80" height="28" rx="6" fill="rgba(139,92,246,.15)" stroke="#a78bfa"/>
+<text x="175" y="170" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#7c3aed">kube-audit</text>
+<path d="M85 33 L135 33" stroke="#ef4444" stroke-width="1.5" fill="none"/>
+<path d="M215 33 L265 33" stroke="#ef4444" stroke-width="1.5" fill="none"/>
+<path d="M305 51 L85 83" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+<path d="M85 101 L135 101" stroke="#9ca0aa" stroke-width="1" fill="none"/>
+<path d="M215 101 L265 101" stroke="#9ca0aa" stroke-width="1" fill="none"/>
+</svg>`
+  },
+  {
+    title: 'Live Demo · DevSecOps',
+    role: '🔨 DevSecOps',
+    difficulty: 'Intermediate · Architecture DSO-3',
+    mitre: 'MITRE T1195.002',
+    context: '<strong>Context:</strong> A pull request from a first-time contributor adds a one-line change to your GitHub Actions workflow: a seemingly harmless npm install of a new package. The CI runner has cloud admin credentials mounted as environment variables (legacy debt). The PR passes all automated checks and is awaiting review.',
+    question: 'Walk through why this PR is a critical security risk, and what single workflow change removes the entire class of attack.',
+    modelAnswer: 'The npm package could be a typosquat or a compromised legitimate dependency — either runs arbitrary code inside the CI runner at install time, reading env vars and exfiltrating the cloud admin credentials. Signed commits and reviews don\'t help because the malicious code runs in CI, not in the PR author\'s diff. Single fix: remove long-lived admin credentials from CI entirely — use OIDC federation to the cloud provider, with scoped permissions per workflow and time-bound tokens. Even if a package is malicious, short-lived scoped tokens limit blast radius to minutes and specific resources. Defense-in-depth: pin dependencies by hash, run a package-allowlist check in a required status, and require reviewer approval from a CODEOWNER for workflow file changes.',
+    techTerms: ['oidc','federation','token','pin','hash','lockfile','dependency','allowlist','codeowner','branch protection','secret','env','environment','scope','short-lived','supply chain','npm','typosquat','install','runner','workflow','trigger'],
+    diagram: `<svg viewBox="0 0 360 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+<rect x="15" y="15" width="70" height="36" rx="6" fill="rgba(139,92,246,.15)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="50" y="33" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#7c3aed">PR author</text>
+<text x="50" y="45" text-anchor="middle" font-family="Inter" font-size="7" fill="#7c3aed">first-timer</text>
+<rect x="135" y="15" width="80" height="36" rx="6" fill="#f0f1f4" stroke="#c4c7ce"/>
+<text x="175" y="33" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">GitHub PR</text>
+<text x="175" y="45" text-anchor="middle" font-family="Inter" font-size="7" fill="#5a5d66">passes CI</text>
+<rect x="265" y="15" width="80" height="36" rx="6" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1.5"/>
+<text x="305" y="33" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">CI runner</text>
+<text x="305" y="45" text-anchor="middle" font-family="Inter" font-size="7" fill="#dc2626">npm install</text>
+<rect x="15" y="83" width="70" height="36" rx="6" fill="rgba(245,158,11,.15)" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="50" y="101" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">env vars</text>
+<text x="50" y="113" text-anchor="middle" font-family="Inter" font-size="7" fill="#d97706">AWS_KEY</text>
+<rect x="135" y="83" width="80" height="36" rx="6" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1.5"/>
+<text x="175" y="101" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">Package</text>
+<text x="175" y="113" text-anchor="middle" font-family="Inter" font-size="7" fill="#dc2626">typosquat</text>
+<rect x="265" y="83" width="80" height="36" rx="6" fill="#f0f1f4" stroke="#c4c7ce"/>
+<text x="305" y="101" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#1c1e24">AWS Admin</text>
+<text x="305" y="113" text-anchor="middle" font-family="Inter" font-size="7" fill="#5a5d66">long-lived</text>
+<rect x="135" y="151" width="80" height="28" rx="6" fill="rgba(139,92,246,.15)" stroke="#a78bfa"/>
+<text x="175" y="170" text-anchor="middle" font-family="Inter" font-size="9" font-weight="600" fill="#7c3aed">Audit log</text>
+<path d="M85 33 L135 33" stroke="#737383" stroke-width="1" fill="none"/>
+<path d="M215 33 L265 33" stroke="#737383" stroke-width="1" fill="none"/>
+<path d="M305 51 L175 83" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+<path d="M175 146 L305 83" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+<path d="M85 101 L135 101" stroke="#9ca0aa" stroke-width="1" fill="none"/>
+</svg>`
+  }
+];
+
+let currentScenario = null;
+
+function pickScenario() {
+  // Pick a random scenario different from the last one if possible (stored in sessionStorage)
+  let lastIdx = -1;
+  try { lastIdx = parseInt(sessionStorage.getItem('tr-lastScenario') || '-1', 10); } catch(e){}
+  let idx = Math.floor(Math.random() * DEMO_SCENARIOS.length);
+  if (idx === lastIdx && DEMO_SCENARIOS.length > 1) {
+    idx = (idx + 1) % DEMO_SCENARIOS.length;
+  }
+  try { sessionStorage.setItem('tr-lastScenario', String(idx)); } catch(e){}
+  currentScenario = DEMO_SCENARIOS[idx];
+  return currentScenario;
+}
+
+function renderScenario() {
+  const s = pickScenario();
+  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  const setHTML = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
+  setText('dScenTitle', s.title);
+  setText('dScenRole', s.role);
+  setText('dScenDifficulty', s.difficulty);
+  setText('dScenQuestion', s.question);
+  setText('dScenModel', s.modelAnswer);
+  setHTML('dScenContext', s.context);
+  setHTML('dScenDiagram', s.diagram);
+  // mitre tag
+  const mitre = document.getElementById('dScenMitre');
+  if (mitre) {
+    mitre.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 3l-9 18-3-9-9-3 21-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>' + s.mitre;
+  }
+  // proof panel mirrors the scenario that is loaded in the live demo
+  setText('pScenTitle', s.title.replace(/^Live Demo · /, ''));
+  setText('pScenMitre', s.mitre);
+  setText('pScenQ', s.question);
+  setHTML('pScenDiagram', s.diagram);
+}
+
+function demoNotice(kind, html){ const el = document.getElementById('dErr'); if (!el) return; el.className = 'derr show ' + kind; el.innerHTML = html; if (kind === 'warn') setTimeout(() => { el.className = 'derr'; }, 6000); }
+async function submitDemo() {
+  const _e = document.getElementById('dErr'); if (_e) _e.className = 'derr';
+  const ans = document.getElementById('dAns').value.trim();
+  const questionEl = document.getElementById('dScenQuestion');
+  const question = questionEl ? questionEl.textContent.trim() : '';
+
+  if (ans.length < 20) {
+    demoNotice('warn', 'Write at least a sentence or two — the scoring needs something to evaluate.');
+    return;
+  }
+
+  // ROUND 62: stop voice recognition if it's still listening — submit shouldn't
+  // leave the mic active after the answer's been sent. Programmatic click on the
+  // mic button triggers the existing stop() handler inside setupVoice().
+  const voiceBtn = document.getElementById('dVoiceBtn');
+  if (voiceBtn && voiceBtn.classList.contains('recording')) {
+    voiceBtn.click();
+  }
+
+  document.getElementById('dStage1').style.display = 'none';
+  document.getElementById('dLoad').classList.add('a');
+  const dw = document.querySelector('.dwb'); if (dw) dw.setAttribute('aria-busy', 'true');
+
+  try {
+    const response = await fetch('https://threatready-db.onrender.com/api/demo/evaluate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: question, answer: ans })
+    });
+
+    if (!response.ok) {
+      throw new Error('Server returned ' + response.status);
+    }
+
+    const result = await response.json();
+    if (result.error) throw new Error(result.error);
+
+    document.getElementById('dLoad').classList.remove('a');
+    document.getElementById('dRes').classList.add('a');
+    if (dw) dw.removeAttribute('aria-busy');
+
+    // Show overall score (null-safe: 0 is a legitimate score, not "missing")
+    const num = v => { const n = Number(v); return Number.isFinite(n) ? Math.max(0, Math.min(10, n)) : 0; };
+    document.getElementById('dScore').textContent = num(result.score) + ' / 10';
+
+    // ROUND 62 FIX: replaced || with != null checks.
+    // The old `+result.x || fallback` collapsed legitimate 0 scores to the
+    // fallback because 0 is falsy. With the new backend returning 0 for
+    // gibberish answers, the per-dimension bars were rendering 5 (heuristic
+    // fallback) instead of 0. != null preserves 0 while still catching
+    // undefined/null/missing fields.
+
+    // Legacy 3-dim heuristic (still useful if backend ever returns tech/comm/dec)
+    const tech = result.tech != null ? +result.tech : (result.ti != null ? +result.ti : 5);
+    const comm = result.comm != null ? +result.comm : (result.cq != null ? +result.cq : 5);
+    const dec  = result.dec  != null ? +result.dec  : (result.cr != null ? +result.cr : 5);
+
+    // Primary 5-dim mapping (backend returns ti/cr/ab/cq/fa directly)
+    const ti = num(result.ti != null ? result.ti : tech);   // Threat Identification
+    const cr = num(result.cr != null ? result.cr : dec);    // Containment & Response
+    const ab = num(result.ab != null ? result.ab : tech);   // Architecture & Blast Radius
+    const cq = num(result.cq != null ? result.cq : comm);   // Communication Quality
+    const fa = num(result.fa != null ? result.fa : dec);    // Framework Application
+
+    document.getElementById('dTIS').textContent = ti;
+    document.getElementById('dCRS').textContent = cr;
+    document.getElementById('dABS').textContent = ab;
+    document.getElementById('dCQS').textContent = cq;
+    document.getElementById('dFAS').textContent = fa;
+
+    // Animate the bars
+    setTimeout(() => {
+      document.getElementById('dTI').style.width = (ti * 10) + '%';
+      document.getElementById('dCR').style.width = (cr * 10) + '%';
+      document.getElementById('dAB').style.width = (ab * 10) + '%';
+      document.getElementById('dCQ').style.width = (cq * 10) + '%';
+      document.getElementById('dFA').style.width = (fa * 10) + '%';
+    }, 50);
+
+    // Show feedback + model answer
+    // Backend text is rendered with textContent only — never as HTML — so a
+    // model response can't inject markup or script into the page.
+    const modelEl = document.getElementById('dScenModel');
+    if (modelEl) {
+      modelEl.textContent = '';
+      const add = (cls, label, text) => { const d = document.createElement('div'); d.className = cls; const b = document.createElement('strong'); b.textContent = label; d.appendChild(b); d.appendChild(document.createTextNode(' ' + String(text))); modelEl.appendChild(d); };
+      if (result.feedback) add('rfb', 'AI feedback:', result.feedback);
+      add('rmod', 'Model answer:', result.model || (currentScenario && currentScenario.modelAnswer) || 'Not available for this scenario.');
+      if (result.level) add('rlvl', 'Estimated level:', result.level);
+    }
+
+  } catch (err) {
+    console.warn('Demo eval error:', err);
+    if (dw) dw.removeAttribute('aria-busy');
+    document.getElementById('dLoad').classList.remove('a');
+    document.getElementById('dStage1').style.display = 'block';
+    demoNotice('bad', 'The scoring service is temporarily unavailable. Your answer is still in the box — try again in a moment, or <a href="https://threatready.io/app/auth?mode=signup" target="_blank" rel="noopener noreferrer">sign up for the full version</a>.');
+  }
+}
+function resetDemo() {
+  document.getElementById('dRes').classList.remove('a');
+  document.getElementById('dStage1').style.display = 'block';
+  document.getElementById('dAns').value = '';
+  ['dTI','dCR','dAB','dCQ','dFA'].forEach(id => document.getElementById(id).style.width = '0%');
+  // Pick a fresh scenario for the retry
+  renderScenario();
+}
+
+// Initialise scenario on page load
+renderScenario();
+
+// ============================================================
+// Voice-to-text — Web Speech API
+// Graceful degradation: if browser doesn't support, disable the button
+// ============================================================
+
+(function setupVoice(){
+  const btn = document.getElementById('dVoiceBtn');
+  const label = document.getElementById('dVoiceLabel');
+  const status = document.getElementById('dVoiceStatus');
+  const textarea = document.getElementById('dAns');
+  if (!btn || !textarea) return;
+
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const SGL = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+  if (!SR) {
+    btn.classList.add('dvoice-unsup');
+    btn.setAttribute('disabled', 'true');
+    label.textContent = 'Voice (browser not supported)';
+    btn.title = 'Web Speech API not supported in this browser. Use Chrome, Edge, Brave or Safari.';
+    return;
+  }
+
+  let recognition = null;
+  let isListening = false;
+  let committed = '';
+  let interim = '';
+  let lastResultTime = Date.now();
+  let processedFinalIndices = new Set();
+  let lastSessionFinalCount = 0;
+
+  const DOMAIN_TERMS = new Set([
+    'mitre','att&ck','attck','cve','cvss','iam','rbac','soc','siem','soar','xdr','edr','dlp',
+    'tls','ssl','vpn','dns','tcp','udp','xss','csrf','sql','sqli','rce','ssrf','xxe','idor',
+    'aws','azure','gcp','s3','ec2','iam','rds','kms','vpc','lambda','dynamodb','cognito','cloudtrail','cloudfront','guardduty',
+    'kubernetes','k8s','kubectl','helm','istio','envoy','etcd','docker','containerd',
+    'oauth','oidc','saml','jwt','mfa','2fa','sso','ldap','kerberos','passkey','fido2','webauthn',
+    'github','gitlab','jenkins','terraform','ansible','ci','cd','devops','devsecops','sast','dast','sca',
+    'crowdstrike','wiz','snyk','tenable','qualys',
+    'ransomware','phishing','malware','rootkit','keylogger','botnet','c2','exfiltration',
+    'gdpr','ccpa','dpdpa','hipaa','pci','pcidss','soc2','iso27001','nist','cis',
+    'incident','forensic','triage','containment','remediation','playbook','runbook','tabletop',
+    'log4j','log4shell','spring4shell','heartbleed','solarwinds',
+    't1078','t1110','t1190','t1486','t1537','t1059','t1611','t1195'
+  ]);
+
+  const PUNCTUATION_COMMANDS = [
+    [/\b(comma)\b/gi, ','],
+    [/\b(period|full stop|fullstop|dot)\b/gi, '.'],
+    [/\b(question mark)\b/gi, '?'],
+    [/\b(exclamation mark|exclamation point)\b/gi, '!'],
+    [/\b(colon)\b/gi, ':'],
+    [/\b(semi colon|semicolon)\b/gi, ';'],
+    [/\b(open quote|quote)\b/gi, '"'],
+    [/\b(close quote|unquote)\b/gi, '"'],
+    [/\b(open paren|open bracket)\b/gi, '('],
+    [/\b(close paren|close bracket)\b/gi, ')'],
+    [/\b(hyphen|dash)\b/gi, '-'],
+    [/\b(slash)\b/gi, '/'],
+    [/\b(new line|new paragraph|new para|line break)\b/gi, '\n'],
+    [/\b(space)\b/gi, ' '],
+  ];
+
+  const HOMOPHONE_FIXES = [
+    [/\bL\s*A\s*M\s*A\b/gi, 'Lambda'],
+    [/\bLama\b/gi, 'Lambda'],
+    [/\bess\s+three\b/gi, 'S3'],
+    [/\bS\s+three\b/gi, 'S3'],
+    [/\bI\s+am\s+role\b/gi, 'IAM role'],
+    [/\bI\s+am\s+policy\b/gi, 'IAM policy'],
+    [/\bI\s+am\s+user\b/gi, 'IAM user'],
+    [/\bAWS\s+I\s+am\b/gi, 'AWS IAM'],
+    [/\bee\s+see\s+two\b/gi, 'EC2'],
+    [/\bE\s+C\s+two\b/gi, 'EC2'],
+    [/\bare\s+ds\b/gi, 'RDS'],
+    [/\bV\s+P\s+C\b/gi, 'VPC'],
+    [/\bsee\s+V\s+E\b/gi, 'CVE'],
+    [/\bC\s+V\s+E\b/gi, 'CVE'],
+    [/\bmiter\b/gi, 'MITRE'],
+    [/\bmight\s+her\b/gi, 'MITRE'],
+    [/\bmitre\s+attack\b/gi, 'MITRE ATT&CK'],
+    [/\bmitre\s+att\s+and\s+ck\b/gi, 'MITRE ATT&CK'],
+    [/\battack\s+and\s+see\s+kay\b/gi, 'ATT&CK'],
+    [/\bO\s+auth\b/gi, 'OAuth'],
+    [/\boath\b/gi, 'OAuth'],
+    [/\bO\s+I\s+D\s+C\b/gi, 'OIDC'],
+    [/\bjot\b/gi, 'JWT'],
+    [/\bJ\s+W\s+T\b/gi, 'JWT'],
+    [/\bsam\s+l\b/gi, 'SAML'],
+    [/\bM\s+F\s+A\b/gi, 'MFA'],
+    [/\btwo\s+F\s+A\b/gi, '2FA'],
+    [/\bS\s+S\s+O\b/gi, 'SSO'],
+    [/\bS\s+Q\s+L\b/gi, 'SQL'],
+    [/\bsequel\s+injection\b/gi, 'SQL injection'],
+    [/\bX\s+S\s+S\b/gi, 'XSS'],
+    [/\bC\s+S\s+R\s+F\b/gi, 'CSRF'],
+    [/\bsea\s+surf\b/gi, 'CSRF'],
+    [/\bR\s+C\s+E\b/gi, 'RCE'],
+    [/\bS\s+S\s+R\s+F\b/gi, 'SSRF'],
+    [/\bcube\s+control\b/gi, 'kubectl'],
+    [/\bkube\s+ctl\b/gi, 'kubectl'],
+    [/\bK\s+eight\s+S\b/gi, 'k8s'],
+    [/\bkay\s+8\s+s\b/gi, 'k8s'],
+    [/\bcube\s+net\s+es\b/gi, 'Kubernetes'],
+    [/\btiara\s+form\b/gi, 'Terraform'],
+    [/\bterror\s+form\b/gi, 'Terraform'],
+    [/\bgit\s+hub\b/gi, 'GitHub'],
+    [/\bgit\s+lab\b/gi, 'GitLab'],
+    [/\bdev\s+sec\s+ops\b/gi, 'DevSecOps'],
+    [/\bdev\s+ops\b/gi, 'DevOps'],
+    [/\blog\s+for\s+J\b/gi, 'Log4j'],
+    [/\blog\s+for\s+shell\b/gi, 'Log4Shell'],
+    [/\bspring\s+for\s+shell\b/gi, 'Spring4Shell'],
+    [/\bsolar\s+winds\b/gi, 'SolarWinds'],
+    [/\bzero\s+trust\b/gi, 'zero trust'],
+    [/\bcloud\s+trail\b/gi, 'CloudTrail'],
+    [/\bguard\s+duty\b/gi, 'GuardDuty'],
+    [/\bV\s+P\s+C\s+flow\b/gi, 'VPC Flow'],
+  ];
+
+  const ALWAYS_CAPS = ['MITRE','ATT&CK','AWS','GCP','EC2','S3','VPC','IAM','RDS','KMS','RBAC','SOC','SIEM','EDR','XDR','DLP','MFA','SSO','OAuth','OIDC','SAML','JWT','XSS','CSRF','SQL','RCE','SSRF','XXE','IDOR','TLS','SSL','VPN','DNS','TCP','UDP','HTTP','HTTPS','API','CVE','CVSS','GDPR','HIPAA','PCI','NIST','CIS','ISO','DPDPA','CERT-In','DevSecOps','DevOps','GitHub','GitLab','CloudTrail','GuardDuty','Kubernetes','Terraform','Lambda','DynamoDB','Cognito','CloudFront','Log4j','Log4Shell','SolarWinds'];
+
+  function applyPunctuation(text){
+    let out = text;
+    PUNCTUATION_COMMANDS.forEach(([re, repl]) => { out = out.replace(re, repl); });
+    out = out.replace(/\s+([,.!?:;])/g, '$1');
+    out = out.replace(/([,.!?:;])(?=\S)/g, '$1 ');
+    out = out.replace(/\(\s+/g, '(').replace(/\s+\)/g, ')');
+    out = out.replace(/\n\s+/g, '\n');
+    return out;
+  }
+
+  function applyDomainFixes(text){
+    let out = text;
+    HOMOPHONE_FIXES.forEach(([re, repl]) => { out = out.replace(re, repl); });
+    ALWAYS_CAPS.forEach(term => {
+      const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const re = new RegExp('\\b' + escaped + '\\b', 'gi');
+      out = out.replace(re, term);
+    });
+    out = out.replace(/(^|[.!?]\s+)([a-z])/g, (m, pre, c) => pre + c.toUpperCase());
+    return out;
+  }
+
+  function scoreAlternative(alt){
+    let score = (alt.confidence != null ? alt.confidence : 0.5);
+    const tokens = alt.transcript.toLowerCase().match(/[a-z0-9&]+/g) || [];
+    let domainHits = 0;
+    tokens.forEach(t => { if (DOMAIN_TERMS.has(t)) domainHits++; });
+    score += Math.min(0.20, domainHits * 0.02);
+    if (alt.transcript.trim().length < 4) score -= 0.15;
+    return score;
+  }
+
+  function bestAlternative(result){
+    let best = result[0];
+    let bestScore = scoreAlternative(best);
+    for (let i = 1; i < result.length; i++){
+      const s = scoreAlternative(result[i]);
+      if (s > bestScore){ best = result[i]; bestScore = s; }
+    }
+    return { transcript: best.transcript, confidence: best.confidence || 0 };
+  }
+
+  function maybeInsertPause(committedText){
+    const now = Date.now();
+    const gap = now - lastResultTime;
+    lastResultTime = now;
+    if (gap > 1800 && committedText && !/[.!?,;]\s*$/.test(committedText)){
+      return committedText + '. ';
+    }
+    return committedText.endsWith(' ') ? committedText : committedText + ' ';
+  }
+
+  function setStatus(msg, cls){
+    status.textContent = msg;
+    status.className = 'dvoice-status' + (cls ? ' ' + cls : '');
+  }
+
+  function render(){
+    let combined = committed + (interim ? ' ' + interim : '');
+    combined = applyPunctuation(combined);
+    combined = applyDomainFixes(combined);
+    textarea.value = combined.trim();
+  }
+
+  function start(){
+    recognition = new SR();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 5;
+    recognition.lang = (navigator.language && /^en/i.test(navigator.language)) ? navigator.language : 'en-IN';
+
+    if (SGL){
+      try {
+        const grammarTerms = Array.from(DOMAIN_TERMS).slice(0, 80).join(' | ');
+        const grammar = '#JSGF V1.0; grammar securityTerms; public <term> = ' + grammarTerms + ' ;';
+        const grammars = new SGL();
+        grammars.addFromString(grammar, 1);
+        recognition.grammars = grammars;
+      } catch(e){}
+    }
+
+    committed = textarea.value.trim();
+    interim = '';
+    lastResultTime = Date.now();
+    processedFinalIndices = new Set();
+    lastSessionFinalCount = 0;
+
+    recognition.onstart = () => {
+      isListening = true;
+      btn.classList.add('recording');
+      btn.setAttribute('aria-pressed', 'true');
+      label.textContent = 'Stop & save';
+      setStatus('🎙 Listening', 'listening');
+    };
+
+    recognition.onresult = (e) => {
+      let newInterim = '';
+      // Mobile Chrome bug: each new final result is the CUMULATIVE transcript,
+      // not just new words. We track the last appended final string and only
+      // append the delta (new content beyond what we already have).
+      for (let i = 0; i < e.results.length; i++){
+        const result = e.results[i];
+        const best = bestAlternative(result);
+        if (result.isFinal){
+          if (processedFinalIndices.has(i)) continue;
+          processedFinalIndices.add(i);
+          const phrase = best.transcript.trim();
+          if (!phrase) continue;
+          
+          // Check if this phrase is an extension of something we already committed.
+          // Compare normalized text (lowercase, no punctuation).
+          const committedNorm = committed.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+          const phraseNorm = phrase.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+          
+          let toAppend = phrase;
+          
+          // Case 1: phrase is identical to or already contained in committed → skip
+          if (committedNorm.endsWith(phraseNorm)) continue;
+          
+          // Case 2: phrase EXTENDS committed (committed ends with the start of phrase)
+          // Find the longest suffix of committed that's a prefix of phrase
+          if (committedNorm.length > 0) {
+            const committedWords = committedNorm.split(' ');
+            const phraseWords = phraseNorm.split(' ');
+            let overlapWords = 0;
+            // Try matching the last N words of committed to first N words of phrase
+            for (let n = Math.min(committedWords.length, phraseWords.length); n > 0; n--) {
+              const committedTail = committedWords.slice(-n).join(' ');
+              const phraseHead = phraseWords.slice(0, n).join(' ');
+              if (committedTail === phraseHead) {
+                overlapWords = n;
+                break;
+              }
+            }
+            if (overlapWords > 0) {
+              // Strip the overlapping prefix from the original (non-normalized) phrase
+              const originalWords = phrase.split(/\s+/);
+              toAppend = originalWords.slice(overlapWords).join(' ').trim();
+              if (!toAppend) continue;  // entire phrase was overlap
+            }
+          }
+          
+          committed = (maybeInsertPause(committed) + toAppend).replace(/\s+/g, ' ').trim();
+        } else {
+          if (i >= e.resultIndex) {
+            newInterim += best.transcript;
+          }
+        }
+      }
+      interim = newInterim.trim();
+      render();
+    };
+
+    recognition.onerror = (e) => {
+      let msg;
+      switch (e.error){
+        case 'not-allowed':
+        case 'service-not-allowed':
+          msg = 'Microphone access denied. Allow mic permission in your browser and try again.'; break;
+        case 'no-speech':
+          msg = 'No speech detected. Try speaking again.'; break;
+        case 'audio-capture':
+          msg = 'No microphone found on this device.'; break;
+        case 'network':
+          msg = 'Network error. Speech recognition needs an internet connection.'; break;
+        case 'aborted':
+          msg = ''; break;
+        default:
+          msg = 'Speech error (' + e.error + '). Try again.';
+      }
+      if (msg) setStatus(msg, 'error');
+      stop(true);
+    };
+
+    recognition.onend = () => {
+      if (isListening && !document.hidden){
+        // On auto-restart, mobile Chrome resets the results array to index 0.
+        // Clear our processed-indices set so the new session's indices aren't
+        // confused with the old session's.
+        processedFinalIndices = new Set();
+        try { recognition.start(); }
+        catch(err){ stop(true); }
+      } else if (isListening){
+        stop(true);
+      }
+    };
+
+    try {
+      recognition.start();
+    } catch(err){
+      setStatus('Could not start voice input.', 'error');
+      stop(true);
+    }
+  }
+
+  function stop(silent){
+    isListening = false;
+    btn.classList.remove('recording');
+    btn.setAttribute('aria-pressed', 'false');
+    label.textContent = 'Voice answer';
+    if (recognition){
+      try { recognition.stop(); } catch(e){}
+      recognition = null;
+    }
+    if (interim){
+      committed = (committed + ' ' + interim).trim();
+      interim = '';
+      render();
+    }
+    if (!silent){
+      let finalText = applyPunctuation(committed);
+      finalText = applyDomainFixes(finalText);
+      textarea.value = finalText.trim();
+      setStatus('Saved. Review and edit before submitting.');
+    }
+  }
+
+
+  btn.addEventListener('click', () => {
+    if (isListening) stop(false);
+    else start();
+  });
+
+  textarea.addEventListener('keydown', () => {
+    if (isListening){
+      setTimeout(() => { if (isListening) stop(true); }, 200);
+    }
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && isListening){
+      stop(false);
+      setStatus('🛑 Voice stopped — you switched tabs or windows.');
+    }
+  });
+  window.addEventListener('blur', () => {
+    if (isListening){
+      stop(false);
+      setStatus('🛑 Voice stopped — focus left the page.');
+    }
+  });
+  window.addEventListener('pagehide', () => { if (isListening) stop(true); });
+})();
+
+// Cookie banner
+function cookiePrefs(t) {
+  try { localStorage.setItem('tr_cookies', t); } catch (e) {}
+  document.getElementById('cb').classList.remove('s');
+}
+try {
+  if (!localStorage.getItem('tr_cookies')) {
+    setTimeout(() => document.getElementById('cb').classList.add('s'), 1500);
+  }
+} catch (e) {}
+
+// Smooth scroll offset for sticky nav
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const id = a.getAttribute('href');
+    if (id === '#' || id.length < 2) return;
+    const el = document.querySelector(id);
+    if (el) {
+      e.preventDefault();
+      const top = el.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+/* Smart outbound links — tag every subpage link with the nearest section id
+   so subpages can build a correct "Back to this section" link. */
+(function(){
+  var SUBPAGES = ['rubric.html','privacy.html','terms.html','security.html','dpa.html','pilot.html','sample-report.html','report-sample-b2c.html'];
+  function nearestSectionId(el){
+    var node = el;
+    while(node && node !== document.body){
+      if(node.tagName === 'SECTION' && node.id) return node.id;
+      node = node.parentNode;
+    }
+    return '';
+  }
+  document.querySelectorAll('a[href]').forEach(function(a){
+    try{
+      var href = a.getAttribute('href');
+      if(!href) return;
+      // skip external, mail, anchors, already-tagged
+      if(href.indexOf('://') !== -1) return;
+      if(href.indexOf('mailto:') === 0) return;
+      if(href.charAt(0) === '#') return;
+      if(href.indexOf('?from=') !== -1) return;
+      // only for our known subpages
+      var base = href.split('#')[0].split('?')[0];
+      if(SUBPAGES.indexOf(base) === -1) return;
+      var sid = nearestSectionId(a);
+      if(!sid) return;
+      var sep = href.indexOf('?') !== -1 ? '&' : '?';
+      var fragIdx = href.indexOf('#');
+      if(fragIdx !== -1){
+        a.setAttribute('href', href.slice(0,fragIdx) + sep + 'from=' + sid + href.slice(fragIdx));
+      }else{
+        a.setAttribute('href', href + sep + 'from=' + sid);
+      }
+    }catch(e){}
+  });
+})();
+</script>
+<script>
+/* ROUND 45: nav dropdown click-toggle (works alongside hover for desktop) */
+(function(){
+  const drops = document.querySelectorAll('.nav-drop');
+  drops.forEach(drop => {
+    const trig = drop.querySelector('.nav-drop-trig');
+    if (!trig) return;
+    trig.addEventListener('click', e => {
+      e.preventDefault();
+      const open = drop.classList.toggle('open');
+      trig.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', e => {
+    drops.forEach(drop => {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('open');
+        const trig = drop.querySelector('.nav-drop-trig');
+        if (trig) trig.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      drops.forEach(drop => {
+        drop.classList.remove('open');
+        const trig = drop.querySelector('.nav-drop-trig');
+        if (trig) trig.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+})();
+</script>
+<script>
+/* ROUND 42: Scrollspy — position-based. Tracks the section whose top edge
+   is closest above the viewport-top + sticky-nav offset, and keeps that
+   section's link active for the ENTIRE duration the user is within it.
+   Replaces the ratio-based observer that lost the active state when
+   scrolling deep into tall sections. */
+(function(){
+  function initScrollspy(){
+    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    var dropTrig = document.querySelector('.nav-drop-trig');
+    if (!navLinks.length) return;
+
+    // ROUND 46: Platform dropdown trigger maps to MULTIPLE sections (#platform, #roles, #scoring).
+    // When the scrollspy puts any of these as active, we light up the Platform trigger.
+    var platformGroup = ['platform','how','demo','scoring','roles'];
+
+    // Build hash → link map and ordered list of section elements
+    var linkMap = {}, sections = [];
+    navLinks.forEach(function(link){
+      var href = link.getAttribute('href');
+      if (!href || href.length <= 1) return;
+      var id = href.substring(1);
+      var el = document.getElementById(id);
+      if (el) {
+        linkMap[id] = link;
+        sections.push({id: id, el: el});
+      }
+    });
+
+    // Add platform-group sections to the tracking list (even though they have no nav link)
+    platformGroup.forEach(function(id){
+      if (linkMap[id]) return; // already linked, skip
+      var el = document.getElementById(id);
+      if (el) sections.push({id: id, el: el});
+    });
+
+    // ROUND 48: sort sections by their actual document Y position so the
+    // 'at-bottom' special-case correctly picks the bottom-most section (FAQ),
+    // not whichever section was inserted last in the array.
+    sections.sort(function(a, b){
+      var ay = a.el.getBoundingClientRect().top + window.scrollY;
+      var by = b.el.getBoundingClientRect().top + window.scrollY;
+      return ay - by;
+    });
+
+    if (!sections.length) return;
+
+    var navOffset = 100; // sticky-nav clearance + breathing room
+    var lastActive = null;
+    var rafScheduled = false;
+
+    function update(){
+      rafScheduled = false;
+      var scrollTop = window.scrollY || window.pageYOffset;
+      var viewportH = window.innerHeight;
+      var probeY = scrollTop + navOffset;
+
+      // Special case: only force Home active when actually at the very top.
+      // ROUND 46: tightened from 30 → 4px. The previous threshold was wide enough
+      // that scrolling halfway into the hero still locked Home, preventing
+      // #platform / Platform-trigger from activating on short hero variants.
+      if (scrollTop < 4 && linkMap['top']) {
+        setActive('top');
+        return;
+      }
+
+      // ROUND 48 fix: At absolute bottom of page, highlight the last NAV-LINKED
+      // section (skip platform-group helper sections like #scoring/#roles/#platform
+      // which were appended to `sections` for tracking but don't have nav anchors).
+      // The previous version returned sections[length-1] which after round 46 was
+      // 'scoring' — wrongly lighting up the Platform dropdown at the footer.
+      if (scrollTop + viewportH >= document.documentElement.scrollHeight - 8) {
+        for (var i = sections.length - 1; i >= 0; i--) {
+          if (linkMap[sections[i].id]) { setActive(sections[i].id); return; }
+        }
+      }
+
+      // Find the section whose top is at or above probeY but closest to it
+      var current = null, currentTop = -Infinity;
+      sections.forEach(function(s){
+        var top = s.el.getBoundingClientRect().top + scrollTop;
+        if (top <= probeY && top > currentTop) {
+          currentTop = top;
+          current = s.id;
+        }
+      });
+      if (current) setActive(current);
+    }
+
+    function setActive(id){
+      if (lastActive === id) return;
+      lastActive = id;
+      navLinks.forEach(function(l){ l.classList.remove('active'); });
+      if (dropTrig) dropTrig.classList.remove('active');
+      if (linkMap[id]) {
+        linkMap[id].classList.add('active');
+      } else if (platformGroup.indexOf(id) !== -1 && dropTrig) {
+        // ROUND 46: any section in the Platform group lights up the dropdown trigger
+        dropTrig.classList.add('active');
+      }
+    }
+
+    function onScroll(){
+      if (!rafScheduled) {
+        rafScheduled = true;
+        requestAnimationFrame(update);
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onScroll, {passive: true});
+    update(); // initial
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollspy);
+  } else {
+    initScrollspy();
+  }
+})();
+</script>
+<script src="back-to-top.js" defer></script>
+</body>
+</html>
